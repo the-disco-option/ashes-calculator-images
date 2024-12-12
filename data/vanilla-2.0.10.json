@@ -317,10 +317,16 @@
         "category": "nuclear",
         "item_key": "uranium-fuel-cell",
         "value": 8000000000
-    }, {
+    }, 
+    {
         "category": "chemical",
         "item_key": "wood",
-        "value": 2000000
+        "value": 10
+    } ,
+    {
+        "category": "chemical",
+        "item_key": "western-larch-wood",
+        "value": 25
     } ],
     "groups": {
         "combat": {
@@ -1560,6 +1566,18 @@
         },
         "order": "a[wood]",
         "stack_size": 100,
+        "subgroup": "raw-resource",
+        "type": "item"
+    },{
+        "group": "intermediate-products",
+        "icon_col": 6,
+        "icon_row": 10,
+        "key": "western-larch-wood",
+        "localized_name": {
+            "en": "Western Larch Wood"
+        },
+        "order": "a[wwood]",
+        "stack_size": 20,
         "subgroup": "raw-resource",
         "type": "item"
     }, {
@@ -8458,6 +8476,18 @@
         "results": [ {
             "amount": 1,
             "name": "coal"
+        } ]
+    },{
+        "icon_col": 9,
+        "icon_row": 2,
+        "key": "western-larch-wood",
+        "localized_name": {
+            "en": "WW"
+        },
+        "mining_time": 1,
+        "results": [ {
+            "amount": 1,
+            "name": "western-larch-wood"
         } ]
     }, {
         "icon_col": 2,
