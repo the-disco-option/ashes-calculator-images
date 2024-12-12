@@ -233,6 +233,27 @@
         },
         "module_slots": 0,
         "prod_bonus": 0
+    },
+    {
+        "allowed_effects": [],
+        "crafting_categories": [ "lumbermilling" ],
+        "crafting_speed": 1,
+        "energy_source": {
+            "emissions_per_minute": {
+                "pollution": 2
+            },
+            "fuel_category": "chemical",
+            "type": "burner"
+        },
+        "energy_usage": 1,
+        "icon_col": 12,
+        "icon_row": 14,
+        "key": "lumber-mill",
+        "localized_name": {
+            "en": "Lumber Mill"
+        },
+        "module_slots": 0,
+        "prod_bonus": 0
     } ],
     "fluids": [ {
         "default_temperature": 25,
@@ -3524,7 +3545,19 @@
         "stack_size": 1,
         "subgroup": "science-pack",
         "type": "item"
-    } ],
+    } ,{
+        "group": "intermediate-products",
+        "icon_col": 14,
+        "icon_row": 12,
+        "key": "western-larch-timber",
+        "localized_name": {
+            "en": "Western Larch Timber"
+        },
+        "order": "zz[Western Larch Timber]",
+        "stack_size": 20,
+        "subgroup": "science-pack",
+        "type": "item"
+    }],
     "mining_drills": [ {
         "allowed_effects": [],
         "energy_source": {
@@ -8462,6 +8495,26 @@
         "results": [ {
             "amount": 1,
             "name": "wooden-chest"
+        } ],
+        "subgroup": "storage"
+    },{
+        "allow_productivity": false,
+        "category": "lumbermilling",
+        "energy_required": 1,
+        "icon_col": 1,
+        "icon_row": 16,
+        "ingredients": [ {
+            "amount": 1,
+            "name": "western-larch-wood"
+        } ],
+        "key": "western-larch-timber",
+        "localized_name": {
+            "en": "Western Larch Timber"
+        },
+        "order": "a[items]-a[western-larch-timber]",
+        "results": [ {
+            "amount": 1,
+            "name": "western-larch-timber"
         } ],
         "subgroup": "storage"
     } ],
