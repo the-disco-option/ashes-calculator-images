@@ -254,6 +254,23 @@
         },
         "module_slots": 0,
         "prod_bonus": 0
+    }, {
+        "allowed_effects": [],
+        "crafting_categories": [ "carpentry" ],
+        "crafting_speed": 1,
+        "energy_source": {
+            "fuel_category": "chemical",
+            "type": "burner"
+        },
+        "energy_usage": 1,
+        "icon_col": 12,
+        "icon_row": 14,
+        "key": "carpentry-station",
+        "localized_name": {
+            "en": "Carpentry Station"
+        },
+        "module_slots": 0,
+        "prod_bonus": 0
     } ],
     "fluids": [ {
         "default_temperature": 25,
@@ -3557,6 +3574,18 @@
         "stack_size": 20,
         "subgroup": "science-pack",
         "type": "item"
+    },{
+        "group": "intermediate-products",
+        "icon_col": 14,
+        "icon_row": 12,
+        "key": "western-larch-caravan-carriage",
+        "localized_name": {
+            "en": "Western Larch Caravan Carriage"
+        },
+        "order": "zz[Western Larch Caravan Carriage]",
+        "stack_size": 1,
+        "subgroup": "science-pack",
+        "type": "item"
     }],
     "mining_drills": [ {
         "allowed_effects": [],
@@ -3613,6 +3642,24 @@
         "mining_speed": 1,
         "module_slots": 2,
         "resource_categories": [ "basic-fluid" ],
+        "takes_fluid": false
+    }, {
+        "energy_source": {
+            "emissions_per_minute": {
+                "pollution": 10
+            },
+            "type": "electric"
+        },
+        "energy_usage": 1,
+        "icon_col": 13,
+        "icon_row": 11,
+        "key": "lumberjacking",
+        "localized_name": {
+            "en": "Lumberjacking"
+        },
+        "mining_speed": 1,
+        "module_slots": 2,
+        "resource_categories": [ "lumberjacking" ],
         "takes_fluid": false
     } ],
     "modules": [ {
@@ -8515,6 +8562,26 @@
         "results": [ {
             "amount": 1,
             "name": "western-larch-timber"
+        } ],
+        "subgroup": "storage"
+    }, {
+        "allow_productivity": false,
+        "category": "carpentry",
+        "energy_required": 1,
+        "icon_col": 1,
+        "icon_row": 16,
+        "ingredients": [ {
+            "amount": 10,
+            "name": "western-larch-timber"
+        } ],
+        "key": "western-larch-caravan-carriage",
+        "localized_name": {
+            "en": "Western Larch Caravan Carriage"
+        },
+        "order": "a[items]-a[Western Larch Caravan Carriage]",
+        "results": [ {
+            "amount": 1,
+            "name": "western-larch-caravan-carriage"
         } ],
         "subgroup": "storage"
     } ],
