@@ -11,9 +11,9 @@
     --light: #3a3f44;
 
     /* main foreground text color */
-    --foreground: #c8c8c8;
+    --foreground: #f0eede;
     /* makes things stand out */
-    --accent: #ff7200;
+    --accent: #f4f0bf;
     /* slightly brighter than main foreground color */
     --bright: #f1fff2;
 }

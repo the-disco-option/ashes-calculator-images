@@ -243,7 +243,7 @@ function renderIgnore(settings) {
 
 // title
 
-export const DEFAULT_TITLE = "Factorio Calculator"
+export const DEFAULT_TITLE = "Ashes Calculator"
 
 export function setTitle(s) {
     if (s === "") {
