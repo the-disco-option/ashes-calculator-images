@@ -54,7 +54,9 @@ class Fuel {
 
 export function getFuel(data, items) {
     let fuelCategories = new Map()
+    console.log("fuels", data.items.sort((a,b) => a.key.localeCompare(b.key)))
     for (let d of data.fuel) {
+        console.log("fuel",d)
         let item = items.get(d.item_key)
         let fuel = new Fuel(
             d.item_key,

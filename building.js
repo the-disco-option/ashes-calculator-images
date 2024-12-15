@@ -207,60 +207,7 @@ function renderTooltipBase() {
 
 export function getBuildings(data, items) {
     let buildings = []
-    let reactorDef = items.get("nuclear-reactor")
-    let reactor = new Building(
-        "nuclear-reactor",
-        reactorDef.name,
-        reactorDef.icon_col,
-        reactorDef.icon_row,
-        ["nuclear"],
-        one,
-        zero,
-        0,
-        zero,
-        null
-    )
-    reactor.renderTooltip = renderTooltipBase
-    buildings.push(reactor)
-    let boilerItem = items.get("boiler")
-    let boilerDef
-    for (let d of data.boilers) {
-        if (d.key === "boiler") {
-            boilerDef = d
-            break
-        }
-    }
-    let boiler_energy = Rational.from_float(boilerDef.energy_consumption)
-    let boiler = new Building(
-        "boiler",
-        boilerItem.name,
-        boilerItem.icon_col,
-        boilerItem.icon_row,
-        ["boiler"],
-        one,
-        zero,
-        0,
-        boiler_energy,
-        "chemical",
-        //boilerDef.target_temperature,
-    )
-    boiler.renderTooltip = renderTooltipBase
-    buildings.push(boiler)
-    let siloDef = items.get("rocket-silo")
-    let launch = new RocketLaunch(
-        "rocket-silo",
-        siloDef.name,
-        siloDef.icon_col,
-        siloDef.icon_row,
-        ["rocket-launch"],
-        one,
-        zero,
-        0,
-        zero,
-        null
-    )
-    launch.renderTooltip = renderTooltipBase
-    buildings.push(launch)
+
     for (let d of data.crafting_machines) {
         let fuel = null
         if (d.energy_source && d.energy_source.type === "burner") {
@@ -281,31 +228,6 @@ export function getBuildings(data, items) {
             d.module_slots,
             Rational.from_float_approximate(d.energy_usage),
             fuel
-        ))
-    }
-    for (let d of data.rocket_silo) {
-        buildings.push(new RocketSilo(
-            d.key,
-            d.localized_name.en,
-            d.icon_col,
-            d.icon_row,
-            d.crafting_categories,
-            Rational.from_float_approximate(d.crafting_speed),
-            zero,
-            d.module_slots,
-            Rational.from_float_approximate(d.energy_usage),
-            null
-        ))
-    }
-    for (let d of data.offshore_pumps) {
-        // Pumping speed is given in units/tick.
-        let speed = Rational.from_float_approximate(d.pumping_speed).mul(Rational.from_float(60))
-        buildings.push(new OffshorePump(
-            d.key,
-            d.localized_name.en,
-            d.icon_col,
-            d.icon_row,
-            speed,
         ))
     }
     for (let d of data.mining_drills) {
