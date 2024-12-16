@@ -34,7 +34,6 @@ export const PX_HEIGHT = 32
 //   key: item key override
 export class Icon {
     constructor(obj, name, key) {
-        console.table({name, key})
         if (name === undefined) {
             this.name = obj.name
         } else {
