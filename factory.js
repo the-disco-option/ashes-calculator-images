@@ -29,7 +29,7 @@ const DEFAULT_ITEM_KEY = "western-larch-caravan-carriage"
 
 export let DEFAULT_PLANET = "nauvis"
 export let DEFAULT_BELT = "transport-belt"
-export let DEFAULT_FUEL = "coal"
+export let DEFAULT_FUEL = "oak-wood"
 let DEFAULT_BUILDINGS = new Set([
     "assembling-machine-1",
     "electric-furnace",

@@ -169,6 +169,7 @@ export class BuildTarget {
 
         this.buildingLabel = element.append("label")
             .classed(SELECTED_INPUT, true)
+            .style("visibility", "hidden")
             .text(" Buildings: ")
             .node()
 
@@ -176,6 +177,7 @@ export class BuildTarget {
 
         this.buildingInput = element.append("input")
             .on("change", changeBuildingCountHandler(this))
+            .style("visibility", "hidden")
             .attr("type", "text")
             .attr("value", 1)
             .attr("size", 3)
@@ -194,9 +196,11 @@ export class BuildTarget {
             .attr("title", "Enter a value to specify the rate. The number of buildings will be determined based on the rate.")
             .node()
         this.displayRecipes()
+
+        this.setRate(one) // Set default rate to one
     }
     setRateLabel() {
-        this.rateLabel.textContent = " Items/" + spec.format.longRate + ": "
+        this.rateLabel.textContent = "Items "
     }
     displayRecipes() {
         this.recipeSelector.selectAll("*").remove()
