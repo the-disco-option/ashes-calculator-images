@@ -459,9 +459,7 @@ export function displayItems(spec, totals) {
         new Header("items/" + spec.format.rateName, 2),
         new Header("surplus/" + spec.format.rateName, 1, true),
         new Header("buildings", 2),
-        new Header("modules", 1),
-        new Header("beacons", 1),
-        new Header("power", 2),
+        new Header("fuel", 2),
         new Header("", 1),  // pop-out links
     ]
     let totalCols = 0
@@ -657,13 +655,11 @@ export function displayItems(spec, totals) {
     let fuelIcon = fuelRow.selectAll(".fuel-icon")
     fuelIcon.selectAll("*").remove()
     fuelIcon.append(d => spec.fuel.icon.make(32))
-    fuelIcon.append("span")
-        .text(" \u00d7 ")
     fuelRow.selectAll("tt.power")
         .text(d => {
             let rate = totals.rates.get(d.recipe)
             let {fuel, power} = spec.getPowerUsage(d.recipe, rate)
-            return `${spec.format.alignRate(power.div(spec.fuel.value))}/${spec.format.rateName}`
+            return `${spec.format.alignRate(power.div(spec.fuel.value))}`
         })
     let electricRow = buildingRow.filter(d => d.building.fuel === null)
     let totalPower = zero

@@ -11,11 +11,11 @@
     --light: #3a3f44;
 
     /* main foreground text color */
-    --foreground: #f0eede;
+    --foreground: #ffffff;
     /* makes things stand out */
-    --accent: #f4f0bf;
+    --accent: #e86a6a;
     /* slightly brighter than main foreground color */
-    --bright: #f1fff2;
+    --bright: #ffffff;
 }
 /* top-level/shared elements */
 body {

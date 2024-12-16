@@ -15,7 +15,7 @@ import { DEFAULT_RATE, DEFAULT_RATE_PRECISION, DEFAULT_COUNT_PRECISION, DEFAULT_
 import { DEFAULT_TAB, currentTab, DEFAULT_VISUALIZER, visualizerType, DEFAULT_RENDER, visualizerRender, isDefaultVisDirection, visualizerDirection } from "./events.js"
 import { spec, DEFAULT_BELT, DEFAULT_FUEL } from "./factory.js"
 import { Rational } from "./rational.js"
-import { currentMod, DEFAULT_TITLE, DEFAULT_COLOR_SCHEME, colorScheme } from "./settings.js"
+import { currentMod, DEFAULT_TITLE, } from "./settings.js"
 import { sorted } from "./sort.js"
 
 function getModuleKey(module) {
@@ -40,9 +40,6 @@ export function formatSettings(excludeTitle, overrideTab, targets) {
     }
     if (tab !== DEFAULT_TAB) {
         settings += "tab=" + tab + "&"
-    }
-    if (colorScheme.key !== DEFAULT_COLOR_SCHEME) {
-        settings += "c=" + colorScheme.key + "&"
     }
     if (spec.format.rateName !== DEFAULT_RATE) {
         settings += "rate=" + spec.format.rateName + "&"

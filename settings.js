@@ -12,7 +12,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 import { DEFAULT_RATE, DEFAULT_RATE_PRECISION, DEFAULT_COUNT_PRECISION, DEFAULT_FORMAT, longRateNames } from "./align.js"
-import { colorSchemes } from "./color.js"
 import { DEFAULT_TAB, clickTab, DEFAULT_VISUALIZER, visualizerType, setVisualizerType, DEFAULT_RENDER, visualizerRender, setVisualizerRender, visualizerDirection, getDefaultVisDirection, setVisualizerDirection } from "./events.js"
 import { spec, DEFAULT_PLANET, DEFAULT_BELT, DEFAULT_FUEL, buildingSort } from "./factory.js"
 import { getRecipeGroups } from "./groups.js"
@@ -347,32 +346,6 @@ export const DEFAULT_COLOR_SCHEME = "default"
 export let colorScheme
 
 function renderColorScheme(settings) {
-    let color = DEFAULT_COLOR_SCHEME
-    if (settings.has("c")) {
-        color = settings.get("c")
-    }
-    setColorScheme(color)
-    d3.select("#color_scheme")
-        .on("change", function(event, d) {
-            setColorScheme(event.target.value)
-            spec.display()
-        })
-        .selectAll("option")
-        .data(colorSchemes)
-        .join("option")
-            .attr("value", d => d.key)
-            .property("selected", d => d.key === color)
-            .text(d => d.name)
-}
-
-function setColorScheme(schemeKey) {
-    for (let scheme of colorSchemes) {
-        if (scheme.key === schemeKey) {
-            colorScheme = scheme
-            colorScheme.apply()
-            return
-        }
-    }
 }
 
 // buildings
