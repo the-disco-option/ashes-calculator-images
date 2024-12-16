@@ -3674,16 +3674,14 @@
             },
             "type": "electric"
         },
-        "energy_usage": 1,
-        "icon_col": 13,
-        "icon_row": 11,
-        "key": "lumberjacking",
+        "energy_usage": 0,
+        "key": "crude-lumberjacking-axe",
         "localized_name": {
-            "en": "Lumberjacking"
+            "en": "Crude Lumberjacking Axe"
         },
         "mining_speed": 1,
-        "module_slots": 2,
-        "resource_categories": [ "lumberjacking" ],
+        "module_slots": 0,
+        "resource_categories": [ "novice-lumberjacking" ],
         "takes_fluid": false
     } ],
     "modules": [ {
@@ -8717,6 +8715,28 @@
         "results": [ {
             "amount": 1,
             "name": "uranium-ore"
+        } ]
+    },{
+        "category": "novice-lumberjacking",
+        "key": "oak-wood",
+        "localized_name": {
+            "en": "Oak Wood Lumberjacking"
+        },
+        "mining_time": 1,
+        "results": [ {
+            "amount": 1,
+            "name": "oak-wood"
+        } ]
+    },{
+        "category": "novice-lumberjacking",
+        "key": "western-larch-wood",
+        "localized_name": {
+            "en": "Western Larch Wood Lumberjacking"
+        },
+        "mining_time": 1,
+        "results": [ {
+            "amount": 1,
+            "name": "western-larch-wood"
         } ]
     } ],
     "rocket_silo": [ {
