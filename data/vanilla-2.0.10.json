@@ -1608,8 +1608,6 @@
         "type": "item"
     },{
         "group": "intermediate-products",
-        "icon_col": 6,
-        "icon_row": 10,
         "key": "western-larch-wood",
         "localized_name": {
             "en": "Western Larch Wood"
@@ -3564,8 +3562,6 @@
         "type": "item"
     } ,{
         "group": "intermediate-products",
-        "icon_col": 14,
-        "icon_row": 12,
         "key": "western-larch-timber",
         "localized_name": {
             "en": "Western Larch Timber"
@@ -3576,8 +3572,6 @@
         "type": "item"
     },{
         "group": "intermediate-products",
-        "icon_col": 14,
-        "icon_row": 12,
         "key": "western-larch-caravan-carriage",
         "localized_name": {
             "en": "Western Larch Caravan Carriage"
@@ -8548,8 +8542,6 @@
         "allow_productivity": false,
         "category": "lumbermilling",
         "energy_required": 1,
-        "icon_col": 1,
-        "icon_row": 16,
         "ingredients": [ {
             "amount": 1,
             "name": "western-larch-wood"
@@ -8568,8 +8560,6 @@
         "allow_productivity": false,
         "category": "carpentry",
         "energy_required": 1,
-        "icon_col": 1,
-        "icon_row": 16,
         "ingredients": [ {
             "amount": 10,
             "name": "western-larch-timber"

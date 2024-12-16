@@ -54,7 +54,7 @@ class Recipe {
 
         this.icon_col = col
         this.icon_row = row
-        this.icon = new Icon(this, products[0].item.name)
+        this.icon = new Icon(this, products[0].item.name, products[0].item.key)
     }
     fuelIngredient() {
         let building = spec.getBuilding(this)

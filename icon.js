@@ -31,14 +31,20 @@ export const PX_HEIGHT = 32
 //        icon available.
 //   name: The filename of the image to use. If not provided, defaults to
 //         obj.name.
+//   key: item key override
 export class Icon {
-    constructor(obj, name) {
+    constructor(obj, name, key) {
+        console.table({name, key})
         if (name === undefined) {
             this.name = obj.name
         } else {
             this.name = name
         }
         this.obj = obj
+        if (this.obj.icon_col === undefined) {
+            this.key = key ?? obj.key ?? obj.item?.key
+        }
+        
     }
     /*path() {
         return "images/" + this.name + ".png"
@@ -53,28 +59,45 @@ export class Icon {
     //   target: The reference node next to which any tooltip will be rendered.
     //           If not provided, defaults to the image itself.
     make(size, suppressTooltip, target) {
-        let x = -this.obj.icon_col * PX_WIDTH
-        let y = -this.obj.icon_row * PX_HEIGHT
-        let img = d3.select(makeEmptyIcon(size))
+        if (this.obj.icon_col === undefined) {
+            let img = d3.select(makeEmptyIcon(32))
             .classed("icon", true)
-            .style("background", "url(images/sprite-sheet-" + sheetHash + ".png)")
-        if (size !== 32) {
-            let ratio = size / 32
-            x *= ratio
-            y *= ratio
-            let width = sheetWidth * ratio
-            let height = sheetHeight * ratio
-            img.style("background-size", `${width}px ${height}px`)
-        }
-        img.style("background-position", `${x}px ${y}px`)
-        if (!suppressTooltip && this.obj.renderTooltip) {
-            let self = this
-            new Tooltip(img.node(), () => self.obj.renderTooltip(), target)
+            .style("background", "url(images/" + this.key + ".png)")
+            .style("background-size", "contain")
+            if (!suppressTooltip && this.obj.renderTooltip) {
+                let self = this
+                new Tooltip(img.node(), () => self.obj.renderTooltip(), target)
+            } else {
+                img.attr("title", this.obj.name)
+            }
+            img.attr("alt", this.name)
+            return img.node()
         } else {
-            img.attr("title", this.obj.name)
+            let x = -this.obj.icon_col * PX_WIDTH
+            let y = -this.obj.icon_row * PX_HEIGHT
+            let img = d3.select(makeEmptyIcon(size))
+                .classed("icon", true)
+                .style("background", "url(images/sprite-sheet-" + sheetHash + ".png)")
+            if (size !== 32) {
+                let ratio = size / 32
+                x *= ratio
+                y *= ratio
+                let width = sheetWidth * ratio
+                let height = sheetHeight * ratio
+                img.style("background-size", `${width}px ${height}px`)
+            }
+            img.style("background-position", `${x}px ${y}px`)
+            if (!suppressTooltip && this.obj.renderTooltip) {
+                let self = this
+                new Tooltip(img.node(), () => self.obj.renderTooltip(), target)
+            } else {
+                img.attr("title", this.obj.name)
+            }
+            img.attr("alt", this.name)
+            return img.node()
         }
-        img.attr("alt", this.name)
-        return img.node()
+
+        
     }
 }
 
