@@ -458,7 +458,6 @@ export function displayItems(spec, totals) {
         new Header("", 1),
         new Header("items/" + spec.format.rateName, 2),
         new Header("surplus/" + spec.format.rateName, 1, true),
-        new Header("belts", 2),
         new Header("buildings", 2),
         new Header("modules", 1),
         new Header("beacons", 1),
@@ -520,14 +519,6 @@ export function displayItems(spec, totals) {
                 .classed("item surplus right-align", true)
                 .append("tt")
                     .classed("surplus-rate", true)
-            // cell 5: belt icon
-            let beltCell = row.append("td")
-                .classed("item pad belt-icon", true)
-            // cell 6: belt count
-            row.append("td")
-                .classed("item right-align belt-count-cell pad-right", true)
-                .append("tt")
-                    .classed("belt-count", true)
 
             // cell 7: building icon
             let buildingCell = row.append("td")
@@ -649,10 +640,8 @@ export function displayItems(spec, totals) {
     buildingExtra.append("span")
         .text(":")
     buildingCell.append(d => d.building.icon.make(32))
-    buildingCell.append("span")
-        .text(" \u00d7")
     buildingRow.selectAll("tt.building-count")
-        .text(d => spec.format.alignCount(spec.getCount(d.recipe, totals.rates.get(d.recipe))))
+        .text(d => d.building.name)
     let moduleRow = row.filter(d => d.moduleSpec !== null)
     let moduleCell = moduleRow.selectAll("td.module-cell")
     // XXX: Something's wrong with how I did the module dropdowns. Work around

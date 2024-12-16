@@ -239,18 +239,13 @@
         "crafting_categories": [ "lumbermilling" ],
         "crafting_speed": 1,
         "energy_source": {
-            "emissions_per_minute": {
-                "pollution": 2
-            },
             "fuel_category": "chemical",
             "type": "burner"
         },
         "energy_usage": 1,
-        "icon_col": 12,
-        "icon_row": 14,
-        "key": "lumber-mill",
+        "key": "oak-timber",
         "localized_name": {
-            "en": "Lumber Mill"
+            "en": "Novice Lumbermilling"
         },
         "module_slots": 0,
         "prod_bonus": 0
@@ -263,11 +258,9 @@
             "type": "burner"
         },
         "energy_usage": 1,
-        "icon_col": 12,
-        "icon_row": 14,
-        "key": "carpentry-station",
+        "key": "oak-caravan-carriage",
         "localized_name": {
-            "en": "Carpentry Station"
+            "en": "Novice Carpentry"
         },
         "module_slots": 0,
         "prod_bonus": 0
@@ -3677,7 +3670,7 @@
         "energy_usage": 0,
         "key": "crude-lumberjacking-axe",
         "localized_name": {
-            "en": "Crude Lumberjacking Axe"
+            "en": "Novice Lumberjacking"
         },
         "mining_speed": 1,
         "module_slots": 0,
