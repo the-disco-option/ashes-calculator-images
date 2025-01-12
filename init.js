@@ -99,7 +99,25 @@ const gathering_files = [
   "lumberjacking",
   "mining",
 ]
-const processing_files = ["metalworking", "stonemasonry"]
+const processing_files = ["metalworking", "stonemasonry", "lumbermilling"]
+const crafting_files = ["carpentry"]
+
+const artisan_skills = [
+  ...gathering_files,
+  ...processing_files,
+  ...crafting_files,
+]
+
+const refining_skills = [...processing_files, ...crafting_files]
+
+const artisan_tiers = [
+  "novice",
+  "apprentice",
+  "journeyman",
+  "master",
+  "grandmaster",
+]
+
 const other = ["drops", "vendor"]
 
 const file_path_prefix = ["/data/materials/"]
@@ -128,6 +146,49 @@ async function loadMaterials() {
   }))
 }
 
+function createBuildings() {
+  return refining_skills.flatMap((skill) =>
+    artisan_tiers.map((tier) => ({
+      allowed_effects: [],
+      crafting_categories: [`${tier}-${skill}`],
+      crafting_speed: 1,
+      energy_source: {
+        fuel_category: "chemical",
+        type: "burner",
+      },
+      energy_usage: 1,
+      key: `${tier}-${skill}`,
+      localized_name: {
+        en: `${tier} ${skill}`,
+      },
+      module_slots: 0,
+      prod_bonus: 0,
+    }))
+  )
+}
+
+function createMiningDrills() {
+  return gathering_files.flatMap((skill) =>
+    artisan_tiers.map((tier) => ({
+      energy_source: {
+        emissions_per_minute: {
+          pollution: 10,
+        },
+        type: "electric",
+      },
+      energy_usage: 0,
+      key: `${tier}-${skill}`,
+      localized_name: {
+        en: `${tier} ${skill}`,
+      },
+      mining_speed: 1,
+      module_slots: 0,
+      resource_categories: [`${tier}-${skill}`],
+      takes_fluid: false,
+    }))
+  )
+}
+
 async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
@@ -138,6 +199,8 @@ async function loadData(modName, settings) {
 
   const data = await d3.json(filename, { cache: "reload" })
   data.items = [...data.items, ...materials]
+  data.crafting_machines = [...data.crafting_machines, ...createBuildings()]
+  data.mining_drills = [...data.mining_drills, ...createMiningDrills()]
   let items = getItems(data)
   let recipes = getRecipes(data, items)
   let planets = getPlanets(data, recipes)

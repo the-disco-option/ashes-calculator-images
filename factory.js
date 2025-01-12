@@ -489,6 +489,7 @@ class FactorySpecification {
         if (recipe.category === null || recipe.category === undefined) {
             return null
         } else {
+            console.log(recipe.category, this.buildings.get(recipe.category), this.buildings)
             return this.buildings.get(recipe.category).getBuilding(recipe)
         }
     }
