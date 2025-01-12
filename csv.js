@@ -4,7 +4,7 @@
  * @returns {Promise<Array<Record<string, unknown>>>}
  */
 export async function csv(filename) {
-  if (!filename.endsWith(".csv")) {
+  if (!filename.endsWith('.csv')) {
     console.debug(`DEBUG: "${filename}" does not have the .csv filename`)
   }
   const res = await fetch(filename)
@@ -13,7 +13,7 @@ export async function csv(filename) {
   }
 
   const text = await res.text()
-  const [headers, ...rows] = text.split("\n").map((line) => line.split(";"))
+  const [headers, ...rows] = text.split('\n').map((line) => line.split(';'))
   const no_columns = headers.length
   const out = []
   for (const [index, row] of rows.entries()) {
@@ -24,8 +24,8 @@ export async function csv(filename) {
     for (const [headerInex, headerKey] of headers.entries()) {
       const key = headerKey.toLowerCase()
       obj[key] = row[headerInex]
-      if (key === "name") {
-        obj["key"] = row[headerInex].toLowerCase().trim().replace(/\s+/, "-")
+      if (key === 'name') {
+        obj['key'] = row[headerInex].toLowerCase().trim().replace(/\s+/, '-')
       }
     }
 
