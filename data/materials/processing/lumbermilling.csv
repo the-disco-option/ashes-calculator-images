@@ -1,3 +1,77 @@
 Name;Level;Category
-Western Larch Timber;Novice;Timber
+Ash Timber;Novice;Timber
+Eastern Helock Timber;Novice;Timber
 Oak Timber;Novice;Timber
+Western Larch Timber;Novice;Timber
+Weeping Willow Timber;Apprentice;Timber
+Braidwood Timber;Journeyman;Timber
+Ash Log;Apprentice;Timber
+Eastern Hemlock Log;Apprentice;Timber
+Oak Log;Apprentice;Timber
+Western Larch Log;Apprentice;Timber
+Weeping Willow Log;Apprentice;Timber
+Braidwood Log;Journeyman;Timber
+Corrupted Ash Log;Journeyman;Timber
+Corrupted Eastern Hemlock Log;Journeyman;Timber
+Corrupted Oak Log;Journeyman;Timber
+Corrupted Western Larch Log;Journeyman;Timber
+Dried Ash Log;Journeyman;Timber
+Dried Eastern Hemlock Log;Journeyman;Timber
+Dried Oak Log;Journeyman;Timber
+Dried Western Larch Log;Journeyman;Timber
+Dried Weeping Willow Log;Journeyman;Timber
+Dried Braidwood Log;Journeyman;Timber
+Ash Beam;Apprentice;Beam
+Eastern Hemlock Beam;Apprentice;Beam
+Oak Beam;Apprentice;Beam
+Western Larch Beam;Apprentice;Beam
+Weeping Willow Beam;Apprentice;Beam
+Braidwood Beam;Journeyman;Beam
+Dried Ash Beam;Journeyman;Beam
+Dried Eastern Hemlock Beam;Journeyman;Beam
+Dried Oak Beam;Journeyman;Beam
+Dried Western Larch Beam;Journeyman;Beam
+Dried Weeping Willow Beam;Journeyman;Beam
+Dried Braidwood Beam;Journeyman;Beam
+Ash Plank;Apprentice;Plank
+Eastern Hemlock Plank;Apprentice;Plank
+Oak Plank;Apprentice;Plank
+Western Larch Plank;Apprentice;Plank
+Weeping Willow Plank;Apprentice;Plank
+Braidwood Plank;Journeyman;Plank
+Dried Ash Plank;Journeyman;Plank
+Dried Eastern Hemlock Plank;Journeyman;Plank
+Dried Oak Plank;Journeyman;Plank
+Dried Western Larch Plank;Journeyman;Plank
+Dried Weeping Willow Plank;Journeyman;Plank
+Dried Braidwood Plank;Journeyman;Plank
+Ash Board;Apprentice;Board
+Eastern Hemlock Board;Apprentice;Board
+Oak Board;Apprentice;Board
+Western Larch Board;Apprentice;Board
+Weeping Willow Board;Apprentice;Board
+Braidwood Board;Journeyman;Board
+Dried Ash Board;Journeyman;Board
+Dried Eastern Hemlock Board;Journeyman;Board
+Dried Oak Board;Journeyman;Board
+Dried Western Larch Board;Journeyman;Board
+Dried Weeping Willow Board;Journeyman;Board
+Dried Braidwood Board;Journeyman;Board
+Ash Saw Dust;Apprentice;Sawdust
+Eastern Hemlock Saw Dust;Apprentice;Sawdust
+Oak Saw Dust;Apprentice;Sawdust
+Western Larch Saw Dust;Apprentice;Sawdust
+Weeping Willow Saw Dust;Apprentice;Sawdust
+Braidwood Saw Dust;Journeyman;Sawdust
+Ash Woodchips;Apprentice;Wood Chips
+Eastern Hemlock Woodchips;Apprentice;Wood Chips
+Oak Woodchips;Apprentice;Wood Chips
+Western Larch Woodchips;Apprentice;Wood Chips
+Weeping Willow Woodchips;Apprentice;Wood Chips
+Braidwood Woodchips;Journeyman;Wood Chips
+Ash Paper;Journeyman;Paper
+Eastern Hemlock Paper;Journeyman;Paper
+Oak Paper;Journeyman;Paper
+Western Larch Paper;Journeyman;Paper
+Weeping Willow Paper;Journeyman;Paper
+Braidwood Paper;Journeyman;Paper
