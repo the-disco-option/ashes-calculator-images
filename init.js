@@ -99,57 +99,69 @@ const gathering_files = [
   "lumberjacking",
   "mining",
 ]
-const processing = ["metalworking", "stonemasonry"]
+const processing_files = ["metalworking", "stonemasonry"]
 const other = ["drops", "vendor"]
 
 const file_path_prefix = ["/data/materials/"]
 
 async function loadMaterials() {
-  const gathering_data = await Promise.all(
-    gathering_files.map((file) =>
+  const data = await Promise.all([
+    ...gathering_files.map((file) =>
       csv(file_path_prefix + "/gathering/" + file + ".csv").then((rows) =>
         rows.map((row) => ({ ...row, skill: file }))
       )
-    )
-  )
-  return gathering_data.flat()
+    ),
+    ...processing_files.map((file) =>
+      csv(file_path_prefix + "/processing/" + file + ".csv").then((rows) =>
+        rows.map((row) => ({ ...row, skill: file }))
+      )
+    ),
+  ])
+  return data.flat().map((d) => ({
+    key: d.key,
+    localized_name: { en: d.name },
+    stack_size: 20,
+    order: "zz[Western Larch Timber]",
+    group: "intermediate-products",
+    subgroup: "science-pack",
+    type: "item",
+  }))
 }
 
 async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
   let filename = "data/" + mod.filename
-  const data = await csv("/data/materials/gathering/mining.csv")
-  console.log(data)
+
   const materials = await loadMaterials()
-  console.table(materials)
+  console.log(materials)
 
-  d3.json(filename, { cache: "reload" }).then(function (data) {
-    let items = getItems(data)
-    let recipes = getRecipes(data, items)
-    let planets = getPlanets(data, recipes)
-    let modules = getModules(data, items)
-    let buildings = getBuildings(data, items)
-    let belts = getBelts(data)
-    let fuel = getFuel(data, items)
-    getSprites(data)
-    let itemGroups = getItemGroups(items, data)
-    spec.setData(
-      items,
-      recipes,
-      planets,
-      modules,
-      buildings,
-      belts,
-      fuel,
-      itemGroups
-    )
+  const data = await d3.json(filename, { cache: "reload" })
+  data.items = [...data.items, ...materials]
+  let items = getItems(data)
+  let recipes = getRecipes(data, items)
+  let planets = getPlanets(data, recipes)
+  let modules = getModules(data, items)
+  let buildings = getBuildings(data, items)
+  let belts = getBelts(data)
+  let fuel = getFuel(data, items)
+  getSprites(data)
+  let itemGroups = getItemGroups(items, data)
+  spec.setData(
+    items,
+    recipes,
+    planets,
+    modules,
+    buildings,
+    belts,
+    fuel,
+    itemGroups
+  )
 
-    fixLegacySettings(settings)
-    renderSettings(settings)
+  fixLegacySettings(settings)
+  renderSettings(settings)
 
-    spec.updateSolution()
-  })
+  spec.updateSolution()
 }
 
 export function init() {

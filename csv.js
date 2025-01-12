@@ -13,21 +13,18 @@ export async function csv(filename) {
   }
 
   const text = await res.text()
-  console.log(
-    text,
-    text.split("\n").map((line) => line.split(";"))
-  )
   const [headers, ...rows] = text.split("\n").map((line) => line.split(";"))
   const no_columns = headers.length
   const out = []
   for (const [index, row] of rows.entries()) {
     if (row.length !== no_columns) {
-      throw new Error(`Wrong row length at index${index}`)
+      throw new Error(`CSV: ${filename}: Wrong row length at index ${index}`)
     }
     const obj = {}
     for (const [headerInex, headerKey] of headers.entries()) {
-      obj[headerKey] = row[headerInex]
-      if (headerKey === "Name") {
+      const key = headerKey.toLowerCase()
+      obj[key] = row[headerInex]
+      if (key === "name") {
         obj["key"] = row[headerInex].toLowerCase().trim().replace(/\s+/, "-")
       }
     }
