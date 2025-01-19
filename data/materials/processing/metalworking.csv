@@ -1,8 +1,8 @@
-Name;Level;Category
-Copper Fragments;Novice;Metal Fragments
-Zinc Fragments;Novice;Metal Fragments
-Tin Fragments;Apprentice;Metal Fragments
-Iron Fragments;Journeyman;Metal Fragments
-Rividium Fragments;Journeyman;Metal Fragments
-Charcoal;Apprentice;Fuel
-Coke;Journeyman;Fuel
+Name;Level;Category;Amount1;Material1
+Copper Fragments;Novice;Metal Fragments;1;Copper
+Zinc Fragments;Novice;Metal Fragments;1;Zinc
+Tin Fragments;Apprentice;Metal Fragments;1;Tin
+Iron Fragments;Journeyman;Metal Fragments;1;Iron
+Rividium Fragments;Journeyman;Metal Fragments;1;Rividium
+Charcoal;Apprentice;Fuel;3;Oak Wood
+Coke;Journeyman;Fuel;1;Coal
