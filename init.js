@@ -1,3 +1,65 @@
+/**
+ * @typedef {Object} Material
+ * @property {string} key - The unique identifier for the material.
+ * @property {Object} localized_name - The localized names of the material.
+ * @property {string} localized_name.en - The English name of the material.
+ * @property {number} stack_size - The stack size of the material.
+ * @property {string} order - The order string for sorting.
+ * @property {string} group - The group the material belongs to.
+ * @property {string} subgroup - The subgroup the material belongs to.
+ * @property {string} type - The type of the material.
+ */
+
+/**
+ * @typedef {Object} Building
+ * @property {Array} allowed_effects - The allowed effects for the building.
+ * @property {Array<string>} crafting_categories - The crafting categories the building can use.
+ * @property {number} crafting_speed - The crafting speed of the building.
+ * @property {Object} energy_source - The energy source for the building.
+ * @property {string} energy_source.fuel_category - The fuel category for the energy source.
+ * @property {string} energy_source.type - The type of the energy source.
+ * @property {number} energy_usage - The energy usage of the building.
+ * @property {string} key - The unique identifier for the building.
+ * @property {Object} localized_name - The localized names of the building.
+ * @property {string} localized_name.en - The English name of the building.
+ * @property {number} module_slots - The number of module slots in the building.
+ * @property {number} prod_bonus - The production bonus of the building.
+ */
+
+/**
+ * @typedef {Object} MiningDrill
+ * @property {Object} energy_source - The energy source for the mining drill.
+ * @property {Object} energy_source.emissions_per_minute - The emissions per minute for the energy source.
+ * @property {number} energy_source.emissions_per_minute.pollution - The pollution emissions per minute.
+ * @property {string} energy_source.type - The type of the energy source.
+ * @property {number} energy_usage - The energy usage of the mining drill.
+ * @property {string} key - The unique identifier for the mining drill.
+ * @property {Object} localized_name - The localized names of the mining drill.
+ * @property {string} localized_name.en - The English name of the mining drill.
+ * @property {number} mining_speed - The mining speed of the drill.
+ * @property {number} module_slots - The number of module slots in the mining drill.
+ * @property {Array<string>} resource_categories - The resource categories the mining drill can mine.
+ * @property {boolean} takes_fluid - A flag indicating if the mining drill takes fluid.
+ */
+
+/**
+ * @typedef {Object} Recipe
+ * @property {boolean} allow_productivity - A flag indicating if productivity modules are allowed.
+ * @property {string} category - The category of the recipe.
+ * @property {number} energy_required - The energy required to craft the recipe.
+ * @property {Array<Object>} ingredients - The ingredients required for the recipe.
+ * @property {number} ingredients.amount - The amount of the ingredient.
+ * @property {string} ingredients.name - The name of the ingredient.
+ * @property {string} key - The unique identifier for the recipe.
+ * @property {Object} localized_name - The localized names of the recipe.
+ * @property {string} localized_name.en - The English name of the recipe.
+ * @property {string} order - The order string for sorting.
+ * @property {Array<Object>} results - The results of the recipe.
+ * @property {number} results.amount - The amount of the result.
+ * @property {string} results.name - The name of the result.
+ * @property {string} subgroup - The subgroup the recipe belongs to.
+ */
+
 /*Copyright 2019 Kirk McDonald
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -122,6 +184,11 @@ const other = ['drops', 'vendor']
 
 const file_path_prefix = ['/data/materials/']
 
+/**
+ *
+ * @returns {Promise<Array<Material>>}
+ */
+
 async function loadMaterials() {
   const data = await Promise.all([
     ...gathering_files.map((file) =>
@@ -189,6 +256,62 @@ function createMiningDrills() {
   )
 }
 
+const recipe = {
+  allow_productivity: false,
+  category: 'novice-carpentry',
+  energy_required: 1,
+  ingredients: [
+    {
+      amount: 10,
+      name: 'western-larch-timber',
+    },
+  ],
+  key: 'western-larch-caravan-carriage',
+  localized_name: {
+    en: 'Western Larch Caravan Carriage',
+  },
+  order: 'a[items]-a[Western Larch Caravan Carriage]',
+  results: [
+    {
+      amount: 1,
+      name: 'western-larch-caravan-carriage',
+    },
+  ],
+  subgroup: 'storage',
+  _ashes: true,
+}
+
+/**
+ *
+ * @param {Array<Material>} materials
+ * @returns {Array<Recipe>}
+ */
+function createRecipes(materials) {
+  return materials.map((m) => ({
+    allow_productivity: false,
+    category: 'novice-carpentry',
+    energy_required: 1,
+    ingredients: [
+      {
+        amount: 10,
+        name: 'western-larch-timber',
+      },
+    ],
+    key: m.key,
+    localized_name: {
+      en: 'Western Larch Caravan Carriage',
+    },
+    order: 'a[items]-a[Western Larch Caravan Carriage]',
+    results: [
+      {
+        amount: 1,
+        name: m.key,
+      },
+    ],
+    subgroup: 'storage',
+  }))
+}
+
 async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
@@ -199,8 +322,9 @@ async function loadData(modName, settings) {
 
   const data = await d3.json(filename, { cache: 'reload' })
   data.items = [...data.items, ...materials]
-  data.crafting_machines = [...data.crafting_machines, ...createBuildings()]
-  data.mining_drills = [...data.mining_drills, ...createMiningDrills()]
+  data.crafting_machines = [...data.crafting_machines, ...createBuildings()] //processing and crafting
+  data.mining_drills = [...data.mining_drills, ...createMiningDrills()] //gathering
+  data.recipes = [...data.recipes, ...createRecipes(materials)]
   let items = getItems(data)
   let recipes = getRecipes(data, items)
   let planets = getPlanets(data, recipes)
