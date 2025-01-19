@@ -3896,61 +3896,6 @@
       "stack_size": 1,
       "subgroup": "science-pack",
       "type": "item"
-    },
-    {
-      "group": "intermediate-products",
-      "key": "oak-timber",
-      "localized_name": {
-        "en": "Oak Timber"
-      },
-      "order": "zz[Oak Timber]",
-      "stack_size": 20,
-      "subgroup": "science-pack",
-      "type": "item"
-    },
-    {
-      "group": "intermediate-products",
-      "key": "oak-caravan-carriage",
-      "localized_name": {
-        "en": "Oak Caravan Carriage"
-      },
-      "order": "zz[Oak Caravan Carriage]",
-      "stack_size": 1,
-      "subgroup": "science-pack",
-      "type": "item"
-    },
-    {
-      "group": "intermediate-products",
-      "key": "western-larch-wood",
-      "localized_name": {
-        "en": "Western Larch Wood"
-      },
-      "order": "a[wwood]",
-      "stack_size": 20,
-      "subgroup": "raw-resource",
-      "type": "item"
-    },
-    {
-      "group": "intermediate-products",
-      "key": "western-larch-timber",
-      "localized_name": {
-        "en": "Western Larch Timber"
-      },
-      "order": "zz[Western Larch Timber]",
-      "stack_size": 20,
-      "subgroup": "science-pack",
-      "type": "item"
-    },
-    {
-      "group": "intermediate-products",
-      "key": "western-larch-caravan-carriage",
-      "localized_name": {
-        "en": "Western Larch Caravan Carriage"
-      },
-      "order": "zz[Western Larch Caravan Carriage]",
-      "stack_size": 1,
-      "subgroup": "science-pack",
-      "type": "item"
     }
   ],
   "mining_drills": [
@@ -10193,98 +10138,6 @@
         }
       ],
       "subgroup": "storage"
-    },
-    {
-      "allow_productivity": false,
-      "category": "novice-lumbermilling",
-      "energy_required": 1,
-      "ingredients": [
-        {
-          "amount": 1,
-          "name": "oak-wood"
-        }
-      ],
-      "key": "oak-timber",
-      "localized_name": {
-        "en": "Oak Timber"
-      },
-      "order": "a[items]-a[Oak Timber]",
-      "results": [
-        {
-          "amount": 1,
-          "name": "oak-timber"
-        }
-      ],
-      "subgroup": "storage"
-    },
-    {
-      "allow_productivity": false,
-      "category": "novice-carpentry",
-      "energy_required": 1,
-      "ingredients": [
-        {
-          "amount": 10,
-          "name": "oak-timber"
-        }
-      ],
-      "key": "oak-caravan-carriage",
-      "localized_name": {
-        "en": "Oak Caravan Carriage"
-      },
-      "order": "a[items]-a[Oak Caravan Carriage]",
-      "results": [
-        {
-          "amount": 1,
-          "name": "oak-caravan-carriage"
-        }
-      ],
-      "subgroup": "storage"
-    },
-    {
-      "allow_productivity": false,
-      "category": "novice-lumbermilling",
-      "energy_required": 1,
-      "ingredients": [
-        {
-          "amount": 1,
-          "name": "western-larch-wood"
-        }
-      ],
-      "key": "western-larch-timber",
-      "localized_name": {
-        "en": "Western Larch Timber"
-      },
-      "order": "a[items]-a[western-larch-timber]",
-      "results": [
-        {
-          "amount": 1,
-          "name": "western-larch-timber"
-        }
-      ],
-      "subgroup": "storage"
-    },
-    {
-      "allow_productivity": false,
-      "category": "novice-carpentry",
-      "energy_required": 1,
-      "ingredients": [
-        {
-          "amount": 10,
-          "name": "western-larch-timber"
-        }
-      ],
-      "key": "western-larch-caravan-carriage",
-      "localized_name": {
-        "en": "Western Larch Caravan Carriage"
-      },
-      "order": "a[items]-a[Western Larch Caravan Carriage]",
-      "results": [
-        {
-          "amount": 1,
-          "name": "western-larch-caravan-carriage"
-        }
-      ],
-      "subgroup": "storage"
     }
   ],
   "resources": [
@@ -10380,34 +10233,6 @@
         {
           "amount": 1,
           "name": "uranium-ore"
-        }
-      ]
-    },
-    {
-      "category": "novice-lumberjacking",
-      "key": "oak-wood",
-      "localized_name": {
-        "en": "Oak Wood Lumberjacking"
-      },
-      "mining_time": 1,
-      "results": [
-        {
-          "amount": 1,
-          "name": "oak-wood"
-        }
-      ]
-    },
-    {
-      "category": "novice-lumberjacking",
-      "key": "western-larch-wood",
-      "localized_name": {
-        "en": "Western Larch Wood Lumberjacking"
-      },
-      "mining_time": 1,
-      "results": [
-        {
-          "amount": 1,
-          "name": "western-larch-wood"
         }
       ]
     }
