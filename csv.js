@@ -7,6 +7,7 @@ export async function csv(filename) {
   if (!filename.endsWith('.csv')) {
     console.debug(`DEBUG: "${filename}" does not have the .csv filename`)
   }
+
   const res = await fetch(filename)
   if (!res.ok) {
     throw new Error(res.status)
@@ -25,11 +26,19 @@ export async function csv(filename) {
       const key = headerKey.toLowerCase()
       obj[key] = row[headerInex]
       if (key === 'name') {
-        obj['key'] = row[headerInex].toLowerCase().trim().replace(/\s+/, '-')
+        obj['key'] = slug(row[headerInex])
       }
     }
 
     out.push(obj)
   }
   return out
+}
+
+/**
+ * @param {string} str
+ * @returns {string}
+ */
+export function slug(str) {
+  return str.trim().toLowerCase().replaceAll(/\s+/g, '-')
 }

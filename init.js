@@ -201,7 +201,13 @@ async function loadMaterials() {
         rows.map((row) => ({ ...row, skill: file }))
       )
     ),
+    ...crafting_files.map((file) =>
+      csv(file_path_prefix + '/crafting/' + file + '.csv').then((rows) =>
+        rows.map((row) => ({ ...row, skill: file }))
+      )
+    ),
   ])
+  console.log('Ashes Data', data.flat())
   return data.flat().map((d) => ({
     key: d.key,
     localized_name: { en: d.name },

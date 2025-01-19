@@ -501,11 +501,9 @@ class FactorySpecification {
     if (recipe.category === null || recipe.category === undefined) {
       return null
     } else {
-      console.log(
-        recipe.category,
-        this.buildings.get(recipe.category),
-        this.buildings
-      )
+      if (!this.buildings.get(recipe.category)) {
+        throw new Error(`getBuilding: ${recipe.category} not found`)
+      }
       return this.buildings.get(recipe.category).getBuilding(recipe)
     }
   }
