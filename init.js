@@ -186,7 +186,7 @@ const file_path_prefix = ['/data/materials/']
 
 /**
  *
- * @returns {Promise<Array<Material>>}
+ * @returns {Promise<Array<unknown>>}
  */
 
 async function loadMaterials() {
@@ -207,8 +207,16 @@ async function loadMaterials() {
       )
     ),
   ])
-  console.log('Ashes Data', data.flat())
-  return data.flat().map((d) => ({
+  return data.flat()
+}
+
+/**
+ *
+ * @param {Array<unknown>} materials
+ * @returns {Array<Material>}
+ */
+function createItems(materials) {
+  return materials.map((d) => ({
     key: d.key,
     localized_name: { en: d.name },
     stack_size: 20,
@@ -324,10 +332,10 @@ async function loadData(modName, settings) {
   let filename = 'data/' + mod.filename
 
   const materials = await loadMaterials()
-  console.log(materials)
+  console.log('materials', materials)
 
   const data = await d3.json(filename, { cache: 'reload' })
-  data.items = [...data.items, ...materials]
+  data.items = [...data.items, ...createItems(materials)]
   data.crafting_machines = [...data.crafting_machines, ...createBuildings()] //processing and crafting
   data.mining_drills = [...data.mining_drills, ...createMiningDrills()] //gathering
   data.recipes = [...data.recipes, ...createRecipes(materials)]
