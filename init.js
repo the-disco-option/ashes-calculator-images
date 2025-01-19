@@ -75,7 +75,7 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 import { getBelts } from './belt.js'
 import { getBuildings } from './building.js'
-import { csv } from './csv.js'
+import { csv, slug } from './csv.js'
 import { resetDisplay } from './display.js'
 import { spec, resetSpec } from './factory.js'
 import { formatSettings, loadSettings } from './fragment.js'
@@ -184,6 +184,43 @@ const other = ['drops', 'vendor']
 
 const file_path_prefix = ['/data/materials/']
 
+class ArtisanCategory {
+  constructor(name) {
+    this.name = name
+    this.key = slug(name)
+  }
+}
+
+class ArtisanSkill {
+  /**
+   *
+   * @param {string} name
+   * @param {ArtisanCategory} category
+   */
+  constructor(name, category) {
+    this.name = name
+    this.key = slug(name)
+    this.category = category
+  }
+
+  toString() {
+    return this.name
+  }
+  inspect() {
+    return this.toString()
+  }
+}
+
+const Gathering = new ArtisanCategory('Gathering')
+const Processing = new ArtisanCategory('Processing')
+const Crafting = new ArtisanCategory('Crafting')
+
+const artisan_skills_list = [
+  ...gathering_files.map((skill) => new ArtisanSkill(skill, Gathering)),
+  ...processing_files.map((skill) => new ArtisanSkill(skill, Processing)),
+  ...crafting_files.map((skill) => new ArtisanSkill(skill, Crafting)),
+]
+
 /**
  *
  * @returns {Promise<Array<unknown>>}
@@ -191,19 +228,9 @@ const file_path_prefix = ['/data/materials/']
 
 async function loadMaterials() {
   const data = await Promise.all([
-    ...gathering_files.map((file) =>
-      csv(file_path_prefix + '/gathering/' + file + '.csv').then((rows) =>
-        rows.map((row) => ({ ...row, skill: file }))
-      )
-    ),
-    ...processing_files.map((file) =>
-      csv(file_path_prefix + '/processing/' + file + '.csv').then((rows) =>
-        rows.map((row) => ({ ...row, skill: file }))
-      )
-    ),
-    ...crafting_files.map((file) =>
-      csv(file_path_prefix + '/crafting/' + file + '.csv').then((rows) =>
-        rows.map((row) => ({ ...row, skill: file }))
+    ...artisan_skills_list.map((skill) =>
+      csv(`${file_path_prefix}/${skill.category.key}/${skill.key}.csv`).then(
+        (rows) => rows.map((row) => ({ ...row, skill: skill }))
       )
     ),
   ])
@@ -301,29 +328,31 @@ const recipe = {
  * @returns {Array<Recipe>}
  */
 function createRecipes(materials) {
-  return materials.map((m) => ({
-    allow_productivity: false,
-    category: 'novice-carpentry',
-    energy_required: 1,
-    ingredients: [
-      {
-        amount: 10,
-        name: 'western-larch-timber',
+  return materials
+    .filter((mat) => mat.skill.category != Gathering)
+    .map((m) => ({
+      allow_productivity: false,
+      category: `${slug(m.level)}-${m.skill.key}`,
+      energy_required: 1,
+      ingredients: [
+        {
+          amount: 10,
+          name: 'western-larch-timber',
+        },
+      ],
+      key: m.key,
+      localized_name: {
+        en: 'Western Larch Caravan Carriage',
       },
-    ],
-    key: m.key,
-    localized_name: {
-      en: 'Western Larch Caravan Carriage',
-    },
-    order: 'a[items]-a[Western Larch Caravan Carriage]',
-    results: [
-      {
-        amount: 1,
-        name: m.key,
-      },
-    ],
-    subgroup: 'storage',
-  }))
+      order: 'a[items]-a[Western Larch Caravan Carriage]',
+      results: [
+        {
+          amount: 1,
+          name: m.key,
+        },
+      ],
+      subgroup: 'storage',
+    }))
 }
 
 async function loadData(modName, settings) {
