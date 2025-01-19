@@ -215,6 +215,12 @@ const Gathering = new ArtisanCategory('Gathering')
 const Processing = new ArtisanCategory('Processing')
 const Crafting = new ArtisanCategory('Crafting')
 
+const CategoryMap = new Map([
+  [Gathering.key, Gathering],
+  [Processing.key, Processing],
+  [Crafting.key, Crafting],
+])
+
 const artisan_skills_list = [
   ...gathering_files.map((skill) => new ArtisanSkill(skill, Gathering)),
   ...processing_files.map((skill) => new ArtisanSkill(skill, Processing)),
@@ -355,10 +361,22 @@ function createRecipes(materials) {
     }))
 }
 
+async function loadSkills() {
+  const skills_raw = await csv(`/data/skills.csv`)
+
+  const skills = skills_raw.map(
+    (m) => new ArtisanSkill(m.name, CategoryMap.get(m.category))
+  )
+  return skills
+}
+
 async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
   let filename = 'data/' + mod.filename
+
+  const skills = await loadSkills()
+  console.log('skills', skills)
 
   const materials = await loadMaterials()
   console.log('materials', materials)
