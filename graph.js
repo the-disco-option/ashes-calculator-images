@@ -107,8 +107,8 @@ export function getColorMaps(nodes, links) {
 }
 
 export function imageViewBox(obj) {
-  var x1 = obj.icon_col * PX_WIDTH + 0.5
-  var y1 = obj.icon_row * PX_HEIGHT + 0.5
+  var x1 = 0 * PX_WIDTH + 0.5
+  var y1 = 0 * PX_HEIGHT + 0.5
   return `${x1} ${y1} ${PX_WIDTH - 1} ${PX_HEIGHT - 1}`
 }
 
@@ -126,6 +126,10 @@ export function renderNode(
       d.labelX = (d.x0 + d.x1) / 2 - d.width / 2
     }
   })
+  rects.each((d) => {
+    console.log(d.building?.name, d.building?.icon)
+  })
+
   // main rect
   rects
     .append('rect')
@@ -165,9 +169,9 @@ export function renderNode(
     .attr('height', iconSize)
     .append('image')
     .classed('ignore', (d) => ignore.has(d.recipe))
-    .attr('xlink:href', 'images/sprite-sheet-' + sheetHash + '.png')
-    .attr('width', sheetWidth)
-    .attr('height', sheetHeight)
+    .attr('xlink:href', (d) => 'images/' + d.recipe.icon.key + '.png')
+    .attr('width', iconSize)
+    .attr('height', iconSize)
   // node text (building count, or plain rate if no building)
   labeledNode
     .append('text')
@@ -205,7 +209,7 @@ export function renderNode(
     .attr('width', iconSize)
     .attr('height', iconSize)
     .append('image')
-    .attr('xlink:href', 'images/sprite-sheet-' + sheetHash + '.png')
-    .attr('width', sheetWidth)
-    .attr('height', sheetHeight)
+    .attr('xlink:href', (d) => 'images/' + d.building.icon.key + '.png')
+    .attr('width', iconSize)
+    .attr('height', iconSize)
 }
