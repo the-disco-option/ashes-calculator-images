@@ -1,7 +1,6 @@
 /**
  * fetch a csv file and parse it to an array of rows. Headers row required.
  * @param {string} filename
- * @returns {Promise<Array<Record<string, unknown>>>}
  */
 export async function csv(filename) {
   if (!filename.endsWith('.csv')) {
@@ -16,6 +15,7 @@ export async function csv(filename) {
   const text = await res.text()
   const [headers, ...rows] = text.split('\n').map((line) => line.split(';'))
   const no_columns = headers.length
+  /** @type {Array<Record<string, unknown>} */
   const out = []
   for (const [index, row] of rows.entries()) {
     if (row.length !== no_columns) {
@@ -25,9 +25,6 @@ export async function csv(filename) {
     for (const [headerInex, headerKey] of headers.entries()) {
       const key = headerKey.toLowerCase()
       obj[key] = row[headerInex]
-      if (key === 'name') {
-        obj['key'] = slug(row[headerInex])
-      }
     }
 
     out.push(obj)
@@ -41,4 +38,18 @@ export async function csv(filename) {
  */
 export function slug(str) {
   return str.trim().toLowerCase().replaceAll(/\s+/g, '-')
+}
+
+/**
+ * Parse the name field to a key field
+ * @param {T} obj
+ * @template T
+ */
+export function withKey(obj) {
+  const name = obj['name']
+  if (typeof name !== 'string') {
+    throw new Error('Missing "name" field')
+  }
+  obj['name'] = slug(name)
+  return obj
 }

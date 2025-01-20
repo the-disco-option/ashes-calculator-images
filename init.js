@@ -75,7 +75,7 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 import { getBelts } from './belt.js'
 import { getBuildings } from './building.js'
-import { csv, slug } from './csv.js'
+import { withKey, csv, slug } from './csv.js'
 import { resetDisplay } from './display.js'
 import { spec, resetSpec } from './factory.js'
 import { formatSettings, loadSettings } from './fragment.js'
@@ -227,16 +227,11 @@ const artisan_skills_list = [
   ...crafting_files.map((skill) => new ArtisanSkill(skill, Crafting)),
 ]
 
-/**
- *
- * @returns {Promise<Array<unknown>>}
- */
-
 async function loadMaterials() {
   const data = await Promise.all([
     ...artisan_skills_list.map((skill) =>
       csv(`${file_path_prefix}/${skill.category.key}/${skill.key}.csv`).then(
-        (rows) => rows.map((row) => ({ ...row, skill: skill }))
+        (rows) => rows.map((row) => ({ ...row, skill: skill })).map(withKey)
       )
     ),
   ])
