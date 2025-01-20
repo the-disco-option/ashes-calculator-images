@@ -185,9 +185,9 @@ const artisan_tiers = [
   'grandmaster',
 ]
 
-const other = ['drops', 'vendor']
+const other_skills = ['drops', 'vendor']
 
-const file_path_prefix = ['/data/materials/']
+const file_path_prefix = ['/data/materials']
 
 class ArtisanCategory {
   constructor(name) {
@@ -238,17 +238,20 @@ class ArtiansRecipe {}
 const Gathering = new ArtisanCategory('Gathering')
 const Processing = new ArtisanCategory('Processing')
 const Crafting = new ArtisanCategory('Crafting')
+const Other = new ArtisanCategory('Other')
 
 const CategoryMap = new Map([
   [Gathering.key, Gathering],
   [Processing.key, Processing],
   [Crafting.key, Crafting],
+  [Other.key, Other],
 ])
 
 const artisan_skills_list = [
   ...gathering_files.map((skill) => new ArtisanSkill(skill, Gathering)),
   ...processing_files.map((skill) => new ArtisanSkill(skill, Processing)),
   ...crafting_files.map((skill) => new ArtisanSkill(skill, Crafting)),
+  ...other_skills.map((skill) => new ArtisanSkill(skill, Other)),
 ]
 
 async function loadMaterials() {
@@ -379,7 +382,7 @@ function createRecipes(materials) {
       ],
       key: m.key,
       localized_name: {
-        en: 'Western Larch Caravan Carriage',
+        en: m.name,
       },
       order: 'a[items]-a[Western Larch Caravan Carriage]',
       results: [
@@ -402,7 +405,7 @@ async function loadSkills() {
 }
 
 function createResources(materials) {
-  return materials
+  const res = materials
     .filter((mat) => mat.skill.category == Gathering)
     .map((m) => ({
       icon: m.key,
@@ -419,6 +422,7 @@ function createResources(materials) {
         },
       ],
     }))
+  return res
 }
 
 async function loadData(modName, settings) {
