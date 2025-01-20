@@ -167,7 +167,7 @@ const processing_files = [
   'lumber-milling',
   'weaving',
 ]
-const crafting_files = ['carpentry']
+const crafting_files = ['carpentry', 'mining']
 
 const artisan_skills = [
   ...gathering_files,
@@ -284,25 +284,27 @@ function createItems(materials) {
 }
 
 function createBuildings() {
-  return refining_skills.flatMap((skill) =>
-    artisan_tiers.map((tier) => ({
-      allowed_effects: [],
-      crafting_categories: [`${tier}-${skill}`],
-      crafting_speed: 1,
-      energy_source: {
-        fuel_category: 'chemical',
-        type: 'burner',
-      },
-      energy_usage: 1,
-      key: `${tier}-${skill}`,
-      localized_name: {
-        en: `${tier} ${skill}`,
-      },
-      module_slots: 0,
-      prod_bonus: 0,
-      skill: skill,
-    }))
-  )
+  return refining_skills
+    .filter((skill) => skill != 'mining')
+    .flatMap((skill) =>
+      artisan_tiers.map((tier) => ({
+        allowed_effects: [],
+        crafting_categories: [`${tier}-${skill}`],
+        crafting_speed: 1,
+        energy_source: {
+          fuel_category: 'chemical',
+          type: 'burner',
+        },
+        energy_usage: 1,
+        key: `${tier}-${skill}`,
+        localized_name: {
+          en: `${tier} ${skill}`,
+        },
+        module_slots: 0,
+        prod_bonus: 0,
+        skill: skill,
+      }))
+    )
 }
 
 function createMiningDrills() {

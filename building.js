@@ -121,7 +121,7 @@ class Miner extends Building {
     this.miningSpeed = miningSpeed
   }
   less(other) {
-    return this.miningSpeed.less(other.miningSpeed)
+    return one
   }
   drain() {
     return zero
@@ -134,7 +134,7 @@ class Miner extends Building {
     } else {
       speedEffect = one
     }
-    return this.miningSpeed.div(recipe.miningTime).mul(speedEffect)
+    return one
   }
   prodEffect(spec) {
     return spec.miningProd
