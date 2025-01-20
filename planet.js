@@ -63,6 +63,7 @@ function traverseRecycling(recipe, found) {
 }
 
 export function getPlanets(data, recipes) {
+  return null
   if (!data.planets) {
     // For legacy 1.1 datasets.
     return null

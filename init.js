@@ -211,6 +211,25 @@ class ArtisanSkill {
   }
 }
 
+class ArtisanResource {
+  /**
+   *
+   * @param {string} name
+   * @param {ArtisanCategory} category
+   */
+  constructor(name, category) {
+    this.name = name
+    this.key = slug(name)
+    this.category = category
+  }
+}
+
+class ArtisanItem extends ArtisanResource {}
+
+class ArtisanMaterial extends ArtisanResource {}
+
+class ArtiansRecipe {}
+
 const Gathering = new ArtisanCategory('Gathering')
 const Processing = new ArtisanCategory('Processing')
 const Crafting = new ArtisanCategory('Crafting')
@@ -231,7 +250,8 @@ async function loadMaterials() {
   const data = await Promise.all([
     ...artisan_skills_list.map((skill) =>
       csv(`${file_path_prefix}/${skill.category.key}/${skill.key}.csv`).then(
-        (rows) => rows.map((row) => ({ ...row, skill: skill })).map(withKey)
+        (rows) =>
+          rows.map((row) => ({ ...row, skill: skill, key: slug(row.name) }))
       )
     ),
   ])
@@ -323,6 +343,11 @@ const recipe = {
   _ashes: true,
 }
 
+function logAndPass(obj) {
+  console.log(obj)
+  return obj
+}
+
 /**
  *
  * @param {Array<Material>} materials
@@ -331,14 +356,19 @@ const recipe = {
 function createRecipes(materials) {
   return materials
     .filter((mat) => mat.skill.category != Gathering)
+    .filter(
+      (mat) =>
+        typeof mat['material1'] == 'string' && typeof mat['amount1'] == 'string'
+    )
+    .map(logAndPass)
     .map((m) => ({
       allow_productivity: false,
       category: `${slug(m.level)}-${m.skill.key}`,
       energy_required: 1,
       ingredients: [
         {
-          amount: 10,
-          name: 'western-larch-timber',
+          amount: parseInt(m.amount1),
+          name: slug(m.material1),
         },
       ],
       key: m.key,

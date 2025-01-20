@@ -117,6 +117,9 @@ export class BuildTarget {
   constructor(index, itemKey, item, itemGroups) {
     this.index = index
     this.itemKey = itemKey
+    if (!item) {
+      throw new Error('item missing')
+    }
     this.item = item
     // When item has multiple recipes.
     this.recipe = null
