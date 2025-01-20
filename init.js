@@ -308,7 +308,7 @@ function createBuildings() {
 }
 
 function createMiningDrills() {
-  return gathering_files.flatMap((skill) =>
+  const buildings = gathering_files.flatMap((skill) =>
     artisan_tiers.map((tier) => ({
       energy_source: {
         emissions_per_minute: {
@@ -328,6 +328,41 @@ function createMiningDrills() {
       skill: skill,
     }))
   )
+  buildings.push({
+    energy_source: {
+      emissions_per_minute: {
+        pollution: 10,
+      },
+      type: 'electric',
+    },
+    energy_usage: 0,
+    key: `vendor`,
+    localized_name: {
+      en: `Vendor Item`,
+    },
+    mining_speed: 1,
+    module_slots: 0,
+    resource_categories: [`vendor`],
+    takes_fluid: false,
+  })
+  buildings.push({
+    energy_source: {
+      emissions_per_minute: {
+        pollution: 10,
+      },
+      type: 'electric',
+    },
+    energy_usage: 0,
+    key: `vendor`,
+    localized_name: {
+      en: `Monster Drop`,
+    },
+    mining_speed: 1,
+    module_slots: 0,
+    resource_categories: [`drops`],
+    takes_fluid: false,
+  })
+  return buildings
 }
 
 const recipe = {
@@ -431,14 +466,17 @@ async function loadSkills() {
 
 function createResources(materials) {
   const res = materials
-    .filter((mat) => mat.skill.category == Gathering)
+    .filter((m) => m.skill.category == Gathering || m.skill.category == Other)
     .map((m) => ({
       icon: m.key,
       key: m.key,
       localized_name: {
         en: m.name,
       },
-      category: `${slug(m.level)}-${m.skill.key}`,
+      category:
+        m.skill.category == Other
+          ? m.skill.key
+          : `${slug(m.level)}-${m.skill.key}`,
       mining_time: 1,
       results: [
         {
