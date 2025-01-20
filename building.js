@@ -28,7 +28,8 @@ class Building {
     prodBonus,
     moduleSlots,
     power,
-    fuel
+    fuel,
+    skill
   ) {
     this.key = key
     this.name = name
@@ -41,7 +42,7 @@ class Building {
 
     this.icon_col = col
     this.icon_row = row
-    this.icon = new Icon(this)
+    this.icon = new Icon(this, undefined, skill)
   }
   less(other) {
     if (!this.speed.equal(other.speed)) {
@@ -290,7 +291,8 @@ export function getBuildings(data, items) {
         prod,
         d.module_slots,
         Rational.from_float_approximate(d.energy_usage),
-        fuel
+        fuel,
+        d.skill
       )
     )
   }

@@ -161,7 +161,7 @@ const gathering_files = [
   'lumberjacking',
   'mining',
 ]
-const processing_files = ['metalworking', 'stonemasonry', 'lumbermilling']
+const processing_files = ['metalworking', 'stonemasonry', 'lumber-milling']
 const crafting_files = ['carpentry']
 
 const artisan_skills = [
@@ -292,6 +292,7 @@ function createBuildings() {
       },
       module_slots: 0,
       prod_bonus: 0,
+      skill: skill,
     }))
   )
 }
@@ -314,6 +315,7 @@ function createMiningDrills() {
       module_slots: 0,
       resource_categories: [`${tier}-${skill}`],
       takes_fluid: false,
+      skill: skill,
     }))
   )
 }
