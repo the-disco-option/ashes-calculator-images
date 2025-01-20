@@ -362,7 +362,6 @@ function createRecipes(materials) {
       (mat) =>
         typeof mat['material1'] == 'string' && typeof mat['amount1'] == 'string'
     )
-    .map(logAndPass)
     .map((m) => ({
       allow_productivity: false,
       category: `${slug(m.level)}-${m.skill.key}`,
@@ -397,6 +396,26 @@ async function loadSkills() {
   return skills
 }
 
+function createResources(materials) {
+  return materials
+    .filter((mat) => mat.skill.category == Gathering)
+    .map((m) => ({
+      icon: m.key,
+      key: m.key,
+      localized_name: {
+        en: m.name,
+      },
+      category: `${slug(m.level)}-${m.skill.key}`,
+      mining_time: 1,
+      results: [
+        {
+          amount: 1,
+          name: m.key,
+        },
+      ],
+    }))
+}
+
 async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
@@ -413,6 +432,7 @@ async function loadData(modName, settings) {
   data.crafting_machines = [...data.crafting_machines, ...createBuildings()] //processing and crafting
   data.mining_drills = [...data.mining_drills, ...createMiningDrills()] //gathering
   data.recipes = [...data.recipes, ...createRecipes(materials)]
+  data.resources = [...data.resources, ...createResources(materials)]
   let items = getItems(data)
   let recipes = getRecipes(data, items)
   let planets = getPlanets(data, recipes)

@@ -102,9 +102,22 @@ class Miner extends Building {
     miningSpeed,
     moduleSlots,
     power,
-    fuel
+    fuel,
+    skill
   ) {
-    super(key, name, col, row, categories, zero, zero, moduleSlots, power, fuel)
+    super(
+      key,
+      name,
+      col,
+      row,
+      categories,
+      zero,
+      zero,
+      moduleSlots,
+      power,
+      fuel,
+      skill
+    )
     this.miningSpeed = miningSpeed
   }
   less(other) {
@@ -345,7 +358,8 @@ export function getBuildings(data, items) {
         Rational.from_float_approximate(d.mining_speed),
         d.module_slots,
         Rational.from_float_approximate(d.energy_usage),
-        fuel
+        fuel,
+        d.skill
       )
     )
   }
