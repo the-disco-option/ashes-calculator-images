@@ -188,7 +188,7 @@ const artisan_tiers = [
 
 const other_skills = ['drops', 'vendor']
 
-const file_path_prefix = ['/data/materials']
+const file_path_prefix = ['data/materials']
 
 class ArtisanCategory {
   constructor(name) {
