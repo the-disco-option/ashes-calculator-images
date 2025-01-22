@@ -10,6 +10,7 @@ Serve the repo as a static site using whatever tool you like. e.g. `npx serve`
 
 This tool is build on upon the foundations of the Factorio Calculator. Please consider donating to their [Patreon page](https://www.patreon.com/kirkmcdonald).
 
-- [] TODO: composite items, more than one materials
-- [] TODO: slate weapon molds
+- [x] TODO: composite items, more than one materials
+- [x] TODO: slate weapon molds
 - [] TODO: gathering tools
+- [] TODO: support multiple recipes per resource

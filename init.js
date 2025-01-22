@@ -165,6 +165,7 @@ const processing_files = [
   'metalworking',
   'stonemasonry',
   'lumber-milling',
+  'tanning',
   'weaving',
 ]
 const crafting_files = ['carpentry', 'mining']
