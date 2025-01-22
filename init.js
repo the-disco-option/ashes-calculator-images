@@ -395,30 +395,28 @@ function logAndPass(obj) {
   return obj
 }
 
-// TODO: support n number of materials
+function parseIngredient(m, n) {
+  const amount = parseInt(m[`amount${n}`])
+  const name = m[`material${n}`]
+  if (typeof name === 'string' && name.length > 0) {
+    return { amount: amount, name: slug(name) }
+  }
+}
+
 function fillIngredients(m) {
   const ingredients = []
+  let n = 1
 
-  const amount1 = parseInt(m[`amount1`])
-  const name1 = m[`material1`]
-  if (typeof name1 === 'string' && name1.length > 0) {
-    ingredients.push({ amount: amount1, name: slug(name1) })
+  while (true) {
+    const ingredient = parseIngredient(m, n)
+    if (ingredient) {
+      ingredients.push(ingredient)
+      n++
+    } else {
+      break
+    }
   }
-  const amount2 = parseInt(m[`amount2`])
-  const name2 = m[`material2`]
-  if (typeof name2 === 'string' && name2.length > 0) {
-    ingredients.push({ amount: amount2, name: slug(name2) })
-  }
-  const amount3 = parseInt(m[`amount3`])
-  const name3 = m[`material3`]
-  if (typeof name3 === 'string' && name3.length > 0) {
-    ingredients.push({ amount: amount3, name: slug(name3) })
-  }
-  const amount4 = parseInt(m[`amount4`])
-  const name4 = m[`material4`]
-  if (typeof name4 === 'string' && name4.length > 0) {
-    ingredients.push({ amount: amount4, name: slug(name4) })
-  }
+
   console.log(m.name, ingredients, m)
   return ingredients
 }
