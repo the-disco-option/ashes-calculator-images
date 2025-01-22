@@ -70,6 +70,7 @@ export class Icon {
         img.attr('title', this.obj.name)
       }
       img.attr('alt', this.name)
+      img.style('border', '1px solid grey')
       return img.node()
     } else {
       let x = -this.obj.icon_col * PX_WIDTH

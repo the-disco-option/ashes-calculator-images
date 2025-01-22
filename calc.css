@@ -73,8 +73,7 @@ div.tooltip {
   z-index: 20;
 }
 div.tooltip .frame {
-  border: 2px solid var(--bright);
-  border-radius: 5px;
+  border: 1px solid var(--light);
   background-color: var(--dark-overlay);
   padding: 0.4em;
   text-align: left;
@@ -82,6 +81,9 @@ div.tooltip .frame {
   z-index: 20;
 }
 div.tooltip h3 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding-inline: 2px;
+  border-bottom: 1px solid grey;
   margin: 0;
 }
 div.tooltip h3:not(:last-child) {
