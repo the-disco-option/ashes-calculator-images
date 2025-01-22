@@ -13,4 +13,4 @@ This tool is build on upon the foundations of the Factorio Calculator. Please co
 - [x] TODO: composite items, more than one materials
 - [x] TODO: slate weapon molds
 - [] TODO: gathering tools
-- [] TODO: support multiple recipes per resource
+- [x] TODO: support multiple recipes per resource (use resource tab to change prioritization)
