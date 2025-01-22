@@ -426,27 +426,32 @@
     {
       "category": "chemical",
       "item_key": "coal",
-      "value": 4000000
+      "value": 50
     },
     {
       "category": "chemical",
-      "item_key": "nuclear-fuel",
-      "value": 1210000000.0
+      "item_key": "western-larch-wood",
+      "value": 30
     },
     {
       "category": "chemical",
-      "item_key": "rocket-fuel",
-      "value": 100000000
+      "item_key": "oak-wood",
+      "value": 10
     },
     {
       "category": "chemical",
-      "item_key": "solid-fuel",
-      "value": 12000000
+      "item_key": "eastern-hemlock-wood",
+      "value": 3
     },
     {
-      "category": "nuclear",
-      "item_key": "uranium-fuel-cell",
-      "value": 8000000000
+      "category": "chemical",
+      "item_key": "ash-wood",
+      "value": 8
+    },
+    {
+      "category": "chemical",
+      "item_key": "bluefin",
+      "value": 1
     }
   ],
   "groups": {
@@ -10131,21 +10136,6 @@
     }
   ],
   "resources": [
-    {
-      "icon_col": 9,
-      "icon_row": 2,
-      "key": "coal",
-      "localized_name": {
-        "en": "Coal"
-      },
-      "mining_time": 1,
-      "results": [
-        {
-          "amount": 1,
-          "name": "coal"
-        }
-      ]
-    },
     {
       "icon_col": 2,
       "icon_row": 3,
