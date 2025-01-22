@@ -45,14 +45,14 @@ Dried Oak Plank;Journeyman;Plank;;
 Dried Western Larch Plank;Journeyman;Plank;;
 Dried Weeping Willow Plank;Journeyman;Plank;;
 Dried Braidwood Plank;Journeyman;Plank;;
-Ash Board;Apprentice;Board;;
-Eastern Hemlock Board;Apprentice;Board;;
-Oak Board;Apprentice;Board;1;Ash Timber
-Western Larch Board;Apprentice;Board;1;Eastern Hemlock Timber
-Weeping Willow Board;Apprentice;Board;1;Oak Timber
-Braidwood Board;Journeyman;Board;1;Western Larch Timber
-Dried Ash Board;Journeyman;Board;1;Weeping Willow Timber
-Dried Eastern Hemlock Board;Journeyman;Board;1;Braidwood Timber
+Ash Board;Apprentice;Board;1;Ash Timber
+Eastern Hemlock Board;Apprentice;Board;1;Eastern Hemlock Timber
+Oak Board;Apprentice;Board;1;Oak Timber
+Western Larch Board;Apprentice;Board;1;Western Larch Timber
+Weeping Willow Board;Apprentice;Board;1;Weeping Willow Timber
+Braidwood Board;Journeyman;Board;1;Braidwood Timber
+Dried Ash Board;Journeyman;Board;;
+Dried Eastern Hemlock Board;Journeyman;Board;;
 Dried Oak Board;Journeyman;Board;;
 Dried Western Larch Board;Journeyman;Board;;
 Dried Weeping Willow Board;Journeyman;Board;;
