@@ -409,8 +409,8 @@ function fillIngredients(m) {
   if (typeof name2 === 'string' && name2.length > 0) {
     ingredients.push({ amount: amount2, name: slug(name2) })
   }
-  const amount3 = parseInt(m[`amount4`])
-  const name3 = m[`material4`]
+  const amount3 = parseInt(m[`amount3`])
+  const name3 = m[`material3`]
   if (typeof name3 === 'string' && name3.length > 0) {
     ingredients.push({ amount: amount3, name: slug(name3) })
   }
