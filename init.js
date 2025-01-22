@@ -455,7 +455,7 @@ function createRecipes(materials) {
 }
 
 async function loadSkills() {
-  const skills_raw = await csv(`/data/skills.csv`)
+  const skills_raw = await csv(`data/skills.csv`)
 
   const skills = skills_raw.map(
     (m) => new ArtisanSkill(m.name, CategoryMap.get(m.category))
