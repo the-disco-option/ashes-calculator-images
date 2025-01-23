@@ -405,6 +405,17 @@ function parseIngredient(m, n) {
   }
 }
 
+// some recipies return more than one item at a time
+// todo: support separate output items
+function parseAmount(m) {
+  const output = parseInt(m[`output`])
+  if (Number.isFinite(output)) {
+    return output
+  } else {
+    return 1
+  }
+}
+
 function fillIngredients(m) {
   const ingredients = []
   let n = 1
@@ -447,7 +458,7 @@ function createRecipes(materials) {
       order: 'a[items]-a[Western Larch Caravan Carriage]',
       results: [
         {
-          amount: 1,
+          amount: parseAmount(m),
           name: m.key,
         },
       ],

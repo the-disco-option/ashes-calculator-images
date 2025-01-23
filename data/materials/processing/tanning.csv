@@ -1,4 +1,5 @@
-Name;Level;Category;Amount1;Material1
-Animal Fat;Novice;Skinning;1;Grem Carcass
-Animal Fat;Novice;Skinning;1;Bear Carcass
-Animal Fat;Novice;Skinning;1;Wolf Carcass
+Name;Level;Category;Output;Amount1;Material1
+Animal Fat;Novice;Skinning;5;1;Grem Carcass
+Grem Skin;Novice;Skinning;5;1;Grem Carcass
+Animal Fat;Novice;Skinning;5;1;Bear Carcass
+Animal Fat;Novice;Skinning;5;1;Wolf Carcass
