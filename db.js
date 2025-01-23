@@ -14,6 +14,10 @@ function DB() {
   const items = [...spec.items.values()]
 
   const [search, setSearch] = useState('')
+
+  const filteredItems = items.filter(
+    (item) => item.key.includes(search) || item.name.includes(search)
+  )
   return html`<div>
     <h3>Database</h3>
     <div>
@@ -23,13 +27,17 @@ function DB() {
         placeholder="Search for item"
       />
       <ul>
-        ${items
-          .filter(
-            (item) => item.key.includes(search) || item.name.includes(search)
-          )
-          .map(
-            (item) => html`<li key="${item.key}">${item.key} ${item.name}</li>`
-          )}
+        ${filteredItems.map(
+          (item) =>
+            html`<li key="${item.key}">
+              ${item.key} ${item.name}<img
+                src="${`images/${item.key}.png`}"
+                height="16px"
+                width="16px"
+                loading="lazy"
+              />
+            </li>`
+        )}
       </ul>
     </div>
   </div>`
