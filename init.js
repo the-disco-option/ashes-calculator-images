@@ -74,6 +74,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 import { getBelts } from './belt.js'
+import { initDB } from './db.js'
 import { getBuildings } from './building.js'
 import { withKey, csv, slug } from './csv.js'
 import { resetDisplay } from './display.js'
@@ -528,6 +529,7 @@ async function loadData(modName, settings) {
   renderSettings(settings)
 
   spec.updateSolution()
+  initDB()
 }
 
 export function init() {

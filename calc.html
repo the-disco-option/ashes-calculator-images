@@ -12,6 +12,7 @@
     <script src="third_party/d3-graphviz.js"></script>-->
     <script src="third_party/pako.min.js"></script>
     <script src="third_party/popper.min.js"></script>
+    <script type="module" src="db.js"></script>
     <script>
       var handlers = {}
     </script>
@@ -513,10 +514,7 @@ limitations under the License.-->
       </div>
     </div>
 
-    <div id="database_tab" class="tab">
-      <em>Original About</em>
-      <div class="about-content">DB HERE</div>
-    </div>
+    <div id="database_tab" class="tab db-component"></div>
 
     <div id="debug_tab" class="tab">
       <div id="debug_message"></div>
