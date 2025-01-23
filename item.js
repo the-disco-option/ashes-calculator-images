@@ -18,6 +18,7 @@ import { Totals } from './totals.js'
 export class Item {
   constructor(key, name, col, row, phase, group, subgroup, order) {
     this.key = key
+    /** @type {string} */
     this.name = name
     this.phase = phase
     this.recipes = []

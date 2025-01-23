@@ -123,6 +123,7 @@ function getBuildingGroups(buildings) {
 class FactorySpecification {
   constructor() {
     // Game data definitions
+    /** @type {Map<string, Item> | null} */
     this.items = null
     this.recipes = null
     this.modules = null
