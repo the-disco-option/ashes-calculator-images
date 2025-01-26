@@ -464,76 +464,8 @@ function getSteam(data) {
 export function getRecipes(data, items) {
   let hundred = Rational.from_float(100)
   let recipes = new Map()
-  let reactor = items.get('nuclear-reactor')
-  let used_cell_name = 'used-up-uranium-fuel-cell'
-  if (!items.has(used_cell_name)) {
-    used_cell_name = 'depleted-uranium-fuel-cell'
-  }
-  recipes.set(
-    'nuclear-reactor-cycle',
-    new Recipe(
-      'nuclear-reactor-cycle',
-      'Nuclear reactor cycle',
-      reactor.order,
-      reactor.icon_col,
-      reactor.icon_row,
-      false,
-      'nuclear',
-      Rational.from_float(200),
-      [new Ingredient(items.get('uranium-fuel-cell'), one)],
-      [
-        new Ingredient(items.get(used_cell_name), one),
-        new Ingredient(items.get('nuclear-reactor-cycle'), one),
-      ]
-    )
-  )
-  if (items.has('satellite')) {
-    let rocket = items.get('rocket-silo')
-    recipes.set(
-      'rocket-launch',
-      new Recipe(
-        'rocket-launch',
-        'Rocket launch',
-        rocket.order,
-        rocket.icon_col,
-        rocket.icon_row,
-        false,
-        'rocket-launch',
-        one,
-        [
-          new Ingredient(items.get('rocket-part'), Rational.from_float(100)),
-          new Ingredient(items.get('satellite'), one),
-        ],
-        [
-          new Ingredient(
-            items.get('space-science-pack'),
-            Rational.from_float(1000)
-          ),
-        ]
-      )
-    )
-  }
-  let steam = items.get('steam')
-  let [waterRate, steamRate] = getSteam(data)
-  recipes.set(
-    'steam',
-    new Recipe(
-      'steam',
-      'Steam',
-      steam.order,
-      steam.icon_col,
-      steam.icon_row,
-      false,
-      'boiler',
-      one,
-      [new Ingredient(items.get('water'), waterRate)],
-      [new Ingredient(items.get('steam'), steamRate)]
-    )
-  )
+
   for (let d of data.recipes) {
-    /*if (d.key.endsWith("-recycling")) {
-            continue
-        }*/
     let r = makeRecipe(data, items, d)
     if (r) {
       recipes.set(d.key, r)
@@ -648,14 +580,7 @@ export function getRecipes(data, items) {
       recipes.set(plant.key, r)
     }
   }
-  if (data.spoilage) {
-    for (let spoil of data.spoilage) {
-      let from_item = items.get(spoil.from_item)
-      let to_item = items.get(spoil.to_item)
-      let r = new SpoilageRecipe(from_item, to_item)
-      recipes.set(r.key, r)
-    }
-  }
+
   // Reap items both produced by no recipes and consumed by no recipes.
   let reapItems = []
   for (let [itemKey, item] of items) {

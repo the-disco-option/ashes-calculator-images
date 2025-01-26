@@ -81,20 +81,5 @@ export function getItems(data) {
       )
     )
   }
-  let cycleKey = 'nuclear-reactor-cycle'
-  let reactor = items.get('nuclear-reactor')
-  items.set(
-    cycleKey,
-    new Item(
-      cycleKey,
-      'Nuclear reactor cycle',
-      reactor.icon_col,
-      reactor.icon_row,
-      'abstract',
-      'production',
-      'energy',
-      'f[nuclear-energy]-d[reactor-cycle]'
-    )
-  )
   return items
 }

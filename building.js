@@ -230,60 +230,6 @@ function renderTooltipBase() {
 
 export function getBuildings(data, items) {
   let buildings = []
-  let reactorDef = items.get('nuclear-reactor')
-  let reactor = new Building(
-    'nuclear-reactor',
-    reactorDef.name,
-    reactorDef.icon_col,
-    reactorDef.icon_row,
-    ['nuclear'],
-    one,
-    zero,
-    0,
-    zero,
-    null
-  )
-  reactor.renderTooltip = renderTooltipBase
-  buildings.push(reactor)
-  let boilerItem = items.get('boiler')
-  let boilerDef
-  for (let d of data.boilers) {
-    if (d.key === 'boiler') {
-      boilerDef = d
-      break
-    }
-  }
-  let boiler_energy = Rational.from_float(boilerDef.energy_consumption)
-  let boiler = new Building(
-    'boiler',
-    boilerItem.name,
-    boilerItem.icon_col,
-    boilerItem.icon_row,
-    ['boiler'],
-    one,
-    zero,
-    0,
-    boiler_energy,
-    'chemical'
-    //boilerDef.target_temperature,
-  )
-  boiler.renderTooltip = renderTooltipBase
-  buildings.push(boiler)
-  let siloDef = items.get('rocket-silo')
-  let launch = new RocketLaunch(
-    'rocket-silo',
-    siloDef.name,
-    siloDef.icon_col,
-    siloDef.icon_row,
-    ['rocket-launch'],
-    one,
-    zero,
-    0,
-    zero,
-    null
-  )
-  launch.renderTooltip = renderTooltipBase
-  buildings.push(launch)
   for (let d of data.crafting_machines) {
     let fuel = null
     if (d.energy_source && d.energy_source.type === 'burner') {
