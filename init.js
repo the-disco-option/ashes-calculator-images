@@ -163,13 +163,27 @@ const gathering_files = [
   'mining',
 ]
 const processing_files = [
+  'alchemy',
+  'animal-husbandry',
+  'cooking',
+  'farming',
+  'lumber-milling',
   'metalworking',
   'stonemasonry',
-  'lumber-milling',
   'tanning',
   'weaving',
 ]
-const crafting_files = ['carpentry', 'mining']
+const crafting_files = [
+  'arcane-engineering',
+  'armor-smithing',
+  'carpentry',
+  'jeweler',
+  'leatherworking',
+  'mining',
+  'scribe',
+  'tailoring',
+  'weapon-smithing',
+]
 
 const artisan_skills = [
   ...gathering_files,
