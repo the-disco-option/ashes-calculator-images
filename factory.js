@@ -25,7 +25,7 @@ import { BuildTarget } from './target.js'
 import { reapTooltips } from './tooltip.js'
 import { renderTotals } from './visualize.js'
 
-const DEFAULT_ITEM_KEY = 'western-larch-caravan-carriage'
+const DEFAULT_ITEM_KEY = 'journeyman-mining-pickaxe'
 
 export let DEFAULT_PLANET = 'nauvis'
 export let DEFAULT_BELT = 'transport-belt'
