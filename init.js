@@ -179,6 +179,10 @@ const crafting_files = [
   'carpentry',
   'jeweler',
   'leatherworking',
+  'fishing',
+  'herbalism',
+  'hunting',
+  'lumberjacking',
   'mining',
   'scribe',
   'tailoring',
@@ -301,7 +305,9 @@ function createItems(materials) {
 
 function createBuildings() {
   return refining_skills
-    .filter((skill) => skill != 'mining')
+    .filter((skill) =>
+      gathering_files.find((gathering_skill) => skill != gathering_skill)
+    )
     .flatMap((skill) =>
       artisan_tiers.map((tier) => ({
         allowed_effects: [],
