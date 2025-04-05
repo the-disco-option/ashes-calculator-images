@@ -74,7 +74,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 import { getBelts } from './belt'
-import { initDB } from './db'
+import { initDB } from './tabs/db'
 import { getBuildings } from './building'
 import { withKey, csv, slug } from './csv'
 import { resetDisplay } from './display'

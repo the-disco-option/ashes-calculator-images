@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { spec } from './factory'
+import { spec } from '../factory'
 
-function DB() {
+function DatebaseTab() {
   const items = [...spec.items.values()]
 
   const [search, setSearch] = useState('')
@@ -20,7 +20,6 @@ function DB() {
           placeholder="Search for item"
         />
         <ul>
-          $
           {filteredItems.map((item) => (
             <li key={item.key}>
               {item.key} {item.name}
@@ -40,5 +39,5 @@ function DB() {
 
 export function initDB() {
   const root = createRoot(document.querySelector('.db-component'))
-  root.render(<DB />)
+  root.render(<DatebaseTab />)
 }
