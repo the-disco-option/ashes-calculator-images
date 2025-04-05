@@ -1,6 +1,17 @@
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Crafting and processing calculator for Ashes of Creation"
+    />
+    <meta
+      name="keywords"
+      content="Ashes of Creation, calculator, crafting, processing"
+    />
+    <meta name="author" content="The Disco Option" />
     <title>Factorio Calculator</title>
     <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="./src/calc.css" />
@@ -470,44 +481,52 @@ limitations under the License.-->
     </div>
 
     <div id="about_tab" class="tab">
-      <em>Original About</em>
-      <div class="about-content">
-        This calculator is copyright 2015-2024 Kirk McDonald. It is licensed
-        under the Apache License 2.0, and its source may be
-        <a href="https://github.com/KirkMcDonald/kirkmcdonald.github.io"
-          >found on github, here</a
-        >.
-        <p>
-          This calculator is the result of a few years' worth of fooling around,
-          off and on, with performing calculations using Factorio's recipe
-          graph. You may find an essay on the subject, which outlines the
-          techniques used in this calculator,
-          <a href="http://kirkmcdonald.github.io/posts/calculation.html">here</a
+      <h2>About</h2>
+      <p>
+        Crafting and processing calculator for Ashes of Creation. Items and data
+        are sourced from gameplay. WIP
+      </p>
+      <details>
+        <summary><em>Original About for Factorio Calculator</em></summary>
+        <div class="about-content">
+          This calculator is copyright 2015-2024 Kirk McDonald. It is licensed
+          under the Apache License 2.0, and its source may be
+          <a href="https://github.com/KirkMcDonald/kirkmcdonald.github.io"
+            >found on github, here</a
           >.
-        </p>
+          <p>
+            This calculator is the result of a few years' worth of fooling
+            around, off and on, with performing calculations using Factorio's
+            recipe graph. You may find an essay on the subject, which outlines
+            the techniques used in this calculator,
+            <a href="http://kirkmcdonald.github.io/posts/calculation.html"
+              >here</a
+            >.
+          </p>
 
-        <p>Features of this calculator include:</p>
+          <p>Features of this calculator include:</p>
 
-        <ul>
-          <li>
-            Proper handling of oil products. Obtaining numbers for these recipes
-            can be tricky, as several of the items involved may be produced from
-            multiple recipes.
-          </li>
-          <li>Support for modules, including beacons.</li>
-          <li>
-            Support for the mining productivity bonus, introduced in 0.15.
-          </li>
-          <li>Support for "expensive" mode.</li>
-          <li>
-            Arbitrary numerical precision. Calculations are performed using
-            bigint rationals, so errors from floating-point calculations should
-            not be an issue.
-          </li>
-          <li>Support for multiple simultaneous outputs.</li>
-          <li>May display rates per second, minute, or hour.</li>
-        </ul>
-      </div>
+          <ul>
+            <li>
+              Proper handling of oil products. Obtaining numbers for these
+              recipes can be tricky, as several of the items involved may be
+              produced from multiple recipes.
+            </li>
+            <li>Support for modules, including beacons.</li>
+            <li>
+              Support for the mining productivity bonus, introduced in 0.15.
+            </li>
+            <li>Support for "expensive" mode.</li>
+            <li>
+              Arbitrary numerical precision. Calculations are performed using
+              bigint rationals, so errors from floating-point calculations
+              should not be an issue.
+            </li>
+            <li>Support for multiple simultaneous outputs.</li>
+            <li>May display rates per second, minute, or hour.</li>
+          </ul>
+        </div>
+      </details>
     </div>
 
     <div id="database_tab" class="tab db-component"></div>

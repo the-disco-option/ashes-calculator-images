@@ -4,10 +4,6 @@ import htm from 'https://unpkg.com/htm?module'
 import { spec } from './factory'
 import { Item } from './item'
 
-/**
- * @import {Item} from "./item"
- */
-
 const html = htm.bind(createElement)
 
 function DB() {
