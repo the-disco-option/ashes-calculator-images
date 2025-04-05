@@ -16,7 +16,7 @@ import {
   DEFAULT_RATE_PRECISION,
   DEFAULT_COUNT_PRECISION,
   DEFAULT_FORMAT,
-} from './align.js'
+} from './align'
 import {
   DEFAULT_TAB,
   currentTab,
@@ -26,11 +26,11 @@ import {
   visualizerRender,
   isDefaultVisDirection,
   visualizerDirection,
-} from './events.js'
-import { spec, DEFAULT_BELT, DEFAULT_FUEL } from './factory.js'
-import { Rational } from './rational.js'
-import { currentMod, DEFAULT_TITLE } from './settings.js'
-import { sorted } from './sort.js'
+} from './events'
+import { spec, DEFAULT_BELT, DEFAULT_FUEL } from './factory'
+import { Rational } from './rational'
+import { currentMod, DEFAULT_TITLE } from './settings'
+import { sorted } from './sort'
 
 function getModuleKey(module) {
   let moduleKey

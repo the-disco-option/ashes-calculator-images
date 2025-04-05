@@ -1,11 +1,11 @@
 import { createElement, useState } from 'https://esm.sh/react@18.2.0'
 import { render } from 'https://esm.sh/react-dom@18.2.0/'
 import htm from 'https://unpkg.com/htm?module'
-import { spec } from './factory.js'
-import { Item } from './item.js'
+import { spec } from './factory'
+import { Item } from './item'
 
 /**
- * @import {Item} from "./item.js"
+ * @import {Item} from "./item"
  */
 
 const html = htm.bind(createElement)

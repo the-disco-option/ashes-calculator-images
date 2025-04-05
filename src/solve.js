@@ -12,12 +12,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 
-import { getCycleRecipes } from './cycle.js'
-import { Matrix } from './matrix.js'
-import { Rational, minusOne, zero, one } from './rational.js'
-import { Ingredient } from './recipe.js'
-import { simplex } from './simplex.js'
-import { Totals } from './totals.js'
+import { getCycleRecipes } from './cycle'
+import { Matrix } from './matrix'
+import { Rational, minusOne, zero, one } from './rational'
+import { Ingredient } from './recipe'
+import { simplex } from './simplex'
+import { Totals } from './totals'
 
 // Terminating nodes of a solution-graph.
 class OutputRecipe {

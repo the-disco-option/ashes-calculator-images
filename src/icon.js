@@ -12,8 +12,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 
-import { spec } from './factory.js'
-import { Tooltip } from './tooltip.js'
+import { spec } from './factory'
+import { Tooltip } from './tooltip'
 
 export const PX_WIDTH = 32
 export const PX_HEIGHT = 32

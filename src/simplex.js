@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 
-import { zero, one } from './rational.js'
+import { zero, one } from './rational'
 
 function pivot(A, row, col) {
   let x = A.index(row, col)

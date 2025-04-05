@@ -1117,7 +1117,7 @@
     }
 
     function initViz() {
-      // force JIT compilation of Viz.js
+      // force JIT compilation of Viz
       try {
         wasm.graphviz.layout('', 'svg', 'dot').then(() => {
           wasm.graphvizSync().then((graphviz1) => {
@@ -2446,4 +2446,4 @@
     Object.defineProperty(exports, '__esModule', { value: true })
   }
 )
-//# sourceMappingURL=d3-graphviz.js.map
+//# sourceMappingURL=d3-graphviz.map

@@ -11,7 +11,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { Rational, one } from './rational.js'
+import { Rational, one } from './rational'
 
 export const DEFAULT_RATE = 'm'
 export const DEFAULT_RATE_PRECISION = 3

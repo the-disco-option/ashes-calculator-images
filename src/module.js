@@ -11,11 +11,11 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { makeDropdown, addInputs } from './dropdown.js'
-import { Icon, sprites } from './icon.js'
-import { useLegacyCalculation } from './init.js'
-import { Rational, zero, half, one } from './rational.js'
-import { sorted } from './sort.js'
+import { makeDropdown, addInputs } from './dropdown'
+import { Icon, sprites } from './icon'
+import { useLegacyCalculation } from './init'
+import { Rational, zero, half, one } from './rational'
+import { sorted } from './sort'
 
 let hundred = Rational.from_float(100)
 function percent(x) {

@@ -17,7 +17,7 @@ import {
   DEFAULT_COUNT_PRECISION,
   DEFAULT_FORMAT,
   longRateNames,
-} from './align.js'
+} from './align'
 import {
   DEFAULT_TAB,
   clickTab,
@@ -30,19 +30,19 @@ import {
   visualizerDirection,
   getDefaultVisDirection,
   setVisualizerDirection,
-} from './events.js'
+} from './events'
 import {
   spec,
   DEFAULT_PLANET,
   DEFAULT_BELT,
   DEFAULT_FUEL,
   buildingSort,
-} from './factory.js'
-import { getRecipeGroups } from './groups.js'
-import { changeMod } from './init.js'
-import { shortModules, moduleRows, moduleDropdown } from './module.js'
-import { Rational, zero } from './rational.js'
-import { sorted } from './sort.js'
+} from './factory'
+import { getRecipeGroups } from './groups'
+import { changeMod } from './init'
+import { shortModules, moduleRows, moduleDropdown } from './module'
+import { Rational, zero } from './rational'
+import { sorted } from './sort'
 
 // data set
 
@@ -118,7 +118,7 @@ export function currentMod() {
 // 3) If the setting is not present in the map, a default value is used.
 // 4) The setting is applied.
 // 5) The setting's GUI is placed into a consistent state.
-// Remember to add the setting to fragment.js, too!
+// Remember to add the setting to fragment, too!
 
 // tab
 

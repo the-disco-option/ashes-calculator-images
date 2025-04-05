@@ -12,7 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 
-import { spec } from './factory.js'
+import { spec } from './factory'
 import {
   colorList,
   iconSize,
@@ -20,8 +20,8 @@ import {
   getColorMaps,
   renderNode,
   imageViewBox,
-} from './graph.js'
-import { sheetHash, sheetWidth, sheetHeight } from './icon.js'
+} from './graph'
+import { sheetHash, sheetWidth, sheetHeight } from './icon'
 
 function edgePath(edge) {
   let start = edge.points[0]

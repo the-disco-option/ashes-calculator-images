@@ -11,17 +11,17 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { renderBoxGraph } from './boxline2.js'
+import { renderBoxGraph } from './boxline2'
 import {
   visualizerType,
   visualizerRender,
   visualizerDirection,
   installSVGEvents,
-} from './events.js'
-import { spec } from './factory.js'
-import { iconSize, colonWidth } from './graph.js'
-import { zero, one } from './rational.js'
-import { renderSankey } from './sankey.js'
+} from './events'
+import { spec } from './factory'
+import { iconSize, colonWidth } from './graph'
+import { zero, one } from './rational'
+import { renderSankey } from './sankey'
 
 let clickedNode = null
 

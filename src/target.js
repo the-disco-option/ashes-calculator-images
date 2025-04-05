@@ -11,9 +11,9 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { makeDropdown, addInputs } from './dropdown.js'
-import { spec } from './factory.js'
-import { Rational, zero, one } from './rational.js'
+import { makeDropdown, addInputs } from './dropdown'
+import { spec } from './factory'
+import { Rational, zero, one } from './rational'
 
 const SELECTED_INPUT = 'selected'
 

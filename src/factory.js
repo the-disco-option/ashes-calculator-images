@@ -11,19 +11,19 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { Formatter } from './align.js'
-import { renderDebug } from './debug.js'
-import { displayItems } from './display.js'
-import { currentTab } from './events.js'
-import { formatSettings } from './fragment.js'
-import { ModuleSpec } from './module.js'
-import { PriorityList } from './priority.js'
-import { Rational, zero, half, one } from './rational.js'
-import { DISABLED_RECIPE_PREFIX } from './recipe.js'
-import { solve } from './solve.js'
-import { BuildTarget } from './target.js'
-import { reapTooltips } from './tooltip.js'
-import { renderTotals } from './visualize.js'
+import { Formatter } from './align'
+import { renderDebug } from './debug'
+import { displayItems } from './display'
+import { currentTab } from './events'
+import { formatSettings } from './fragment'
+import { ModuleSpec } from './module'
+import { PriorityList } from './priority'
+import { Rational, zero, half, one } from './rational'
+import { DISABLED_RECIPE_PREFIX } from './recipe'
+import { solve } from './solve'
+import { BuildTarget } from './target'
+import { reapTooltips } from './tooltip'
+import { renderTotals } from './visualize'
 
 const DEFAULT_ITEM_KEY = 'journeyman-mining-pickaxe'
 

@@ -1,7 +1,7 @@
 //import {max, min, sum} from "d3-array";
-import { justify } from './align.js'
-import constant from './constant.js'
-import { minFAS } from './cycle.js'
+import { justify } from './align'
+import constant from './constant'
+import { minFAS } from './cycle'
 
 function ascendingSourceBreadth(a, b) {
   return ascendingBreadth(a.source, b.source) || a.index - b.index

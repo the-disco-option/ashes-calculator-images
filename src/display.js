@@ -11,15 +11,15 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { makeDropdown, addInputs } from './dropdown.js'
-import { toggleIgnoreHandler } from './events.js'
-import { spec } from './factory.js'
-import { formatSettings } from './fragment.js'
-import { getRecipeGroups, topoSort } from './groups.js'
-import { Icon } from './icon.js'
-import { useLegacyCalculation } from './init.js'
-import { moduleRows, moduleDropdown } from './module.js'
-import { Rational, zero, one } from './rational.js'
+import { makeDropdown, addInputs } from './dropdown'
+import { toggleIgnoreHandler } from './events'
+import { spec } from './factory'
+import { formatSettings } from './fragment'
+import { getRecipeGroups, topoSort } from './groups'
+import { Icon } from './icon'
+import { useLegacyCalculation } from './init'
+import { moduleRows, moduleDropdown } from './module'
+import { Rational, zero, one } from './rational'
 
 let powerSuffixes = ['\u00A0W', 'kW', 'MW', 'GW', 'TW', 'PW']
 

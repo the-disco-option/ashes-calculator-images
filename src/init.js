@@ -73,26 +73,26 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { getBelts } from './belt.js'
-import { initDB } from './db.js'
-import { getBuildings } from './building.js'
-import { withKey, csv, slug } from './csv.js'
-import { resetDisplay } from './display.js'
-import { spec, resetSpec } from './factory.js'
-import { formatSettings, loadSettings } from './fragment.js'
-import { getFuel } from './fuel.js'
-import { getItemGroups } from './group.js'
-import { getSprites } from './icon.js'
-import { getItems } from './item.js'
-import { getModules } from './module.js'
-import { getPlanets } from './planet.js'
-import { getRecipes } from './recipe.js'
+import { getBelts } from './belt'
+import { initDB } from './db'
+import { getBuildings } from './building'
+import { withKey, csv, slug } from './csv'
+import { resetDisplay } from './display'
+import { spec, resetSpec } from './factory'
+import { formatSettings, loadSettings } from './fragment'
+import { getFuel } from './fuel'
+import { getItemGroups } from './group'
+import { getSprites } from './icon'
+import { getItems } from './item'
+import { getModules } from './module'
+import { getPlanets } from './planet'
+import { getRecipes } from './recipe'
 import {
   currentMod,
   MODIFICATIONS,
   renderDataSetOptions,
   renderSettings,
-} from './settings.js'
+} from './settings'
 
 function reset() {
   window.location.hash = ''

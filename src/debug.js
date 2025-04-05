@@ -11,7 +11,7 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
-import { spec } from './factory.js'
+import { spec } from './factory'
 
 function renderMatrix(d, A, m) {
   let table = d.append('table').attr('border', 1)

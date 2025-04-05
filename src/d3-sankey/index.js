@@ -1,8 +1,8 @@
-export { default as sankey } from './sankey.js'
+export { default as sankey } from './sankey'
 export {
   center as sankeyCenter,
   left as sankeyLeft,
   right as sankeyRight,
   justify as sankeyJustify,
-} from './align.js'
-export { default as sankeyLinkHorizontal } from './sankeyLinkHorizontal.js'
+} from './align'
+export { default as sankeyLinkHorizontal } from './sankeyLinkHorizontal'
