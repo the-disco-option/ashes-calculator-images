@@ -2,9 +2,9 @@
   <head>
     <meta charset="utf-8" />
     <title>Factorio Calculator</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="calc.css" />
-    <link rel="stylesheet" type="text/css" href="dropdown.css" />
+    <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="./src/calc.css" />
+    <link rel="stylesheet" type="text/css" href="./src/dropdown.css" />
     <script src="/third_party/BigInteger.min.js"></script>
     <script src="/third_party/d3.min.js"></script>
     <script src="/third_party/dagre.min.js"></script>
@@ -28,8 +28,8 @@
         changeVisRender,
         changeVisDir,
         toggleDebug,
-      } from './events.js'
-      import { init } from './init.js'
+      } from './src/events.js'
+      import { init } from './src/init.js'
       handlers.plusHandler = plusHandler
       handlers.clickTab = clickTab
       handlers.clickVisualize = clickVisualize
