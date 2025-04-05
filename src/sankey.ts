@@ -30,6 +30,7 @@ import {
 } from './visualize'
 
 import * as d3sankey from './d3-sankey/index'
+import * as d3 from 'd3'
 
 const nodePadding = 36
 const sankeyNodeMargin = 2

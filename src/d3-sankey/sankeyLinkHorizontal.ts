@@ -1,4 +1,5 @@
 //import {linkHorizontal} from "d3-shape";
+import * as d3 from 'd3'
 
 function horizontalSource(d) {
   return [d.source.x1, d.y0]

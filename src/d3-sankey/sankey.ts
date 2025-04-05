@@ -2,6 +2,7 @@
 import { justify } from './align'
 import constant from './constant'
 import { minFAS } from './cycle'
+import * as d3 from 'd3'
 
 function ascendingSourceBreadth(a, b) {
   return ascendingBreadth(a.source, b.source) || a.index - b.index

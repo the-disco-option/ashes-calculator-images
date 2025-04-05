@@ -24,6 +24,7 @@ import { solve } from './solve'
 import { BuildTarget } from './target'
 import { reapTooltips } from './tooltip'
 import { renderTotals } from './visualize'
+import * as d3 from 'd3'
 
 const DEFAULT_ITEM_KEY = 'journeyman-mining-pickaxe'
 

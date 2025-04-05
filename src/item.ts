@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 import { Icon } from './icon'
 import { DisabledRecipe } from './recipe'
+import * as d3 from 'd3'
 
 export class Item {
   constructor(key, name, col, row, phase, group, subgroup, order) {

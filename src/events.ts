@@ -15,6 +15,7 @@ import { spec } from './factory'
 import { Rational } from './rational'
 import { setTitle } from './settings'
 import { renderTotals } from './visualize'
+import * as d3 from 'd3'
 
 // build target events
 

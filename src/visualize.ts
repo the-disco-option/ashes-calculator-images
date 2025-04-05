@@ -22,6 +22,7 @@ import { spec } from './factory'
 import { iconSize, colonWidth } from './graph'
 import { zero, one } from './rational'
 import { renderSankey } from './sankey'
+import * as d3 from 'd3'
 
 let clickedNode = null
 

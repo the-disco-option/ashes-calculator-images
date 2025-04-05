@@ -14,6 +14,7 @@ limitations under the License.*/
 import { powerRepr } from './display'
 import { Icon } from './icon'
 import { Rational, zero, one } from './rational'
+import * as d3 from 'd3'
 
 let thirty = Rational.from_float(30)
 

@@ -13,6 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.*/
 import { spec } from './factory'
 import { Rational } from './rational'
+import * as d3 from 'd3'
 
 class Resource {
   constructor(recipe, weight) {

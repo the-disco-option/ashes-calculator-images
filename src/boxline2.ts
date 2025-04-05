@@ -26,6 +26,7 @@ import {
   graphMouseOverHandler,
   graphMouseLeaveHandler,
 } from './visualize'
+import * as d3 from 'd3'
 
 const boxlineNodeMargin = 10
 

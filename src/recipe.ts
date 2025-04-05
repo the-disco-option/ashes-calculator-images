@@ -14,6 +14,7 @@ limitations under the License.*/
 import { spec } from './factory'
 import { Icon, sprites } from './icon'
 import { Rational, zero, one } from './rational'
+import * as d3 from 'd3'
 
 export class Ingredient {
   constructor(item, amount) {

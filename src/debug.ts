@@ -12,6 +12,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 import { spec } from './factory'
+import * as d3 from 'd3'
 
 function renderMatrix(d, A, m) {
   let table = d.append('table').attr('border', 1)

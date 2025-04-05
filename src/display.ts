@@ -20,6 +20,7 @@ import { Icon } from './icon'
 import { useLegacyCalculation } from './init'
 import { moduleRows, moduleDropdown } from './module'
 import { Rational, zero, one } from './rational'
+import * as d3 from 'd3'
 
 let powerSuffixes = ['\u00A0W', 'kW', 'MW', 'GW', 'TW', 'PW']
 

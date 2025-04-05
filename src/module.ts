@@ -16,6 +16,7 @@ import { Icon, sprites } from './icon'
 import { useLegacyCalculation } from './init'
 import { Rational, zero, half, one } from './rational'
 import { sorted } from './sort'
+import * as d3 from 'd3'
 
 let hundred = Rational.from_float(100)
 function percent(x) {

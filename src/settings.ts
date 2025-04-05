@@ -43,6 +43,7 @@ import { changeMod } from './init'
 import { shortModules, moduleRows, moduleDropdown } from './module'
 import { Rational, zero } from './rational'
 import { sorted } from './sort'
+import * as d3 from 'd3'
 
 // data set
 

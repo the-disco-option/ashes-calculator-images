@@ -93,6 +93,7 @@ import {
   renderDataSetOptions,
   renderSettings,
 } from './settings'
+import * as d3 from 'd3'
 
 function reset() {
   window.location.hash = ''

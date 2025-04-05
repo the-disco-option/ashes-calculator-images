@@ -14,6 +14,7 @@ limitations under the License.*/
 import { makeDropdown, addInputs } from './dropdown'
 import { spec } from './factory'
 import { Rational, zero, one } from './rational'
+import * as d3 from 'd3'
 
 const SELECTED_INPUT = 'selected'
 

@@ -1,4 +1,5 @@
 //import {min} from "d3-array";
+import * as d3 from 'd3'
 
 function targetDepth(d) {
   return d.target.depth

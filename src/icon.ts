@@ -14,6 +14,7 @@ limitations under the License.*/
 
 import { spec } from './factory'
 import { Tooltip } from './tooltip'
+import * as d3 from 'd3'
 
 export const PX_WIDTH = 32
 export const PX_HEIGHT = 32
