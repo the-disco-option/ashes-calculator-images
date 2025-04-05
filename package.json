@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is the repostory for the [Ashes of Creation Calculator](https://the-disco-option.github.io/ashes-calculator/calc.html), a tool for calculating crafting requirements for [Ashes of Creation](https://ashesofcreation.com).",
   "main": "init.js",
+  "packageManager": "pnpm@10.7.1",
   "directories": {
     "doc": "docs"
   },
