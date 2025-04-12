@@ -1,17 +1,18 @@
-import React, { PropsWithChildren, useState } from 'react'
+import React, {
+  memo,
+  PropsWithChildren,
+  useDeferredValue,
+  useState,
+} from 'react'
 import { createRoot } from 'react-dom/client'
 import { spec } from '../factory'
 import { Item } from '../item'
 import { Tooltip, TooltipContent, TooltipTrigger } from '../new-tooltip'
 
 function DatebaseTab() {
-  const items = spec.items ? [...spec.items.values()] : []
-
   const [search, setSearch] = useState('')
+  const deferredSearch = useDeferredValue(search)
 
-  const filteredItems = items.filter(
-    (item) => item.key.includes(search) || item.name.includes(search)
-  )
   return (
     <div>
       <h3>Database</h3>
@@ -21,39 +22,49 @@ function DatebaseTab() {
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search for item"
         />
-        <table>
-          <thead>
-            <tr>
-              <th>Key</th>
-              <th>Name</th>
-              <th>Image</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredItems.map((item) => (
-              <tr key={item.key}>
-                <td>
-                  <ItemTooltip item={item}>
-                    <span>{item.key}</span>
-                  </ItemTooltip>
-                </td>
-                <td>{item.name}</td>
-                <td>
-                  <img
-                    src={`images/${item.key}.png`}
-                    height="16px"
-                    width="16px"
-                    loading="lazy"
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <SlowTable search={deferredSearch} />
       </div>
     </div>
   )
 }
+
+const SlowTable = memo(function SlowTable({ search }: { search: string }) {
+  const items = spec.items ? [...spec.items.values()] : []
+  const filteredItems = items.filter(
+    (item) => item.key.includes(search) || item.name.includes(search)
+  )
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Key</th>
+          <th>Name</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {filteredItems.map((item) => (
+          <tr key={item.key}>
+            <td>
+              <ItemTooltip item={item}>
+                <span>{item.key}</span>
+              </ItemTooltip>
+            </td>
+            <td>{item.name}</td>
+            <td>
+              <img
+                src={`images/${item.key}.png`}
+                height="16px"
+                width="16px"
+                loading="lazy"
+              />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+})
 
 function ItemTooltip({ children, item }: { item: Item } & PropsWithChildren) {
   return (
