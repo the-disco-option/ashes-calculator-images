@@ -4,7 +4,14 @@ This is the repostory for the [Ashes of Creation Calculator](https://the-disco-o
 
 ## Running locally
 
-Serve the repo as a static site using whatever tool you like. e.g. `npx serve`
+`npm run dev` or `pnpm dev`
+
+
+## Building
+
+`npm run build` or `pnpm build`
+
+Output can be found on in `/dest`
 
 ## Support the original calculator
 
@@ -14,3 +21,56 @@ This tool is build on upon the foundations of the Factorio Calculator. Please co
 - [x] TODO: slate weapon molds
 - [] TODO: gathering tools
 - [x] TODO: support multiple recipes per resource (use resource tab to change prioritization)
+- [ ] handle items(consumable, equipable)
+- [ ] support mob spawns and multiple sources better.
+- [ ] Add "What is this item used for?"
+
+think up some interfaces
+interface Item {
+    string Id
+    string Name
+    kind = [item, material, cargo]
+}
+
+interface MatesrialItem extends Item {
+    size_x
+    size_y
+}
+// both material and cargo have this.
+interface Size extends Item {
+    size_x
+    size_y
+}
+
+interface Equippable {
+    EqiupmentSlotId slot
+}
+
+interface Cargo {
+    kind = "cargo"
+}
+
+interface Material {
+    kind = "material"
+}
+
+interface InventoryItem {
+    kind = "item"
+}
+
+interface Weapon {
+    weapon_type [] // this ties into the weapon skill tree.
+
+}
+
+interface Stats {
+    key - stat-id : value
+}
+
+interface Armor {
+    armor_type [heavy, medium, light]
+}
+
+interface Vendor {
+    location ?
+}
