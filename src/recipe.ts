@@ -31,7 +31,7 @@ class SurfaceCondition {
   }
 }
 
-class Recipe {
+export class Recipe {
   constructor(
     key,
     name,

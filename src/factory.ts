@@ -16,6 +16,7 @@ import { renderDebug } from './debug'
 import { displayItems } from './display'
 import { currentTab } from './events'
 import { formatSettings } from './fragment'
+import { Item } from './item'
 import { ModuleSpec } from './module'
 import { PriorityList } from './priority'
 import { Rational, zero, half, one } from './rational'
@@ -122,9 +123,8 @@ function getBuildingGroups(buildings) {
 }
 
 class FactorySpecification {
+  items: Map<string, Item> | null
   constructor() {
-    // Game data definitions
-    /** @type {Map<string, Item> | null} */
     this.items = null
     this.recipes = null
     this.modules = null

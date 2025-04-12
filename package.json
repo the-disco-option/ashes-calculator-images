@@ -17,6 +17,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@floating-ui/react": "^0.27.7",
     "@popperjs/core": "^2.11.8",
     "d3": "6.5.0",
     "prettier": "^3.4.2",

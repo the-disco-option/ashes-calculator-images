@@ -12,13 +12,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.*/
 import { Icon } from './icon'
-import { DisabledRecipe } from './recipe'
+import { DisabledRecipe, Recipe } from './recipe'
 import * as d3 from 'd3'
 
 export class Item {
-  constructor(key, name, col, row, phase, group, subgroup, order) {
+  key: string
+  name: string
+  recipes: Recipe[]
+  constructor(key: string, name, col, row, phase, group, subgroup, order) {
     this.key = key
-    /** @type {string} */
     this.name = name
     this.phase = phase
     this.recipes = []
