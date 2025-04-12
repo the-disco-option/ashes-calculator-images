@@ -18,12 +18,17 @@
   "license": "MIT",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@tanstack/react-router": "^1.115.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "d3": "6.5.0",
     "prettier": "^3.4.2",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@tanstack/react-router-devtools": "^1.115.3",
+    "@tanstack/router-plugin": "^1.115.3",
     "@types/d3": "^7.4.3",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
