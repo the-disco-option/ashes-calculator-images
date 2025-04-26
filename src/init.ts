@@ -496,6 +496,37 @@ async function loadSkills() {
   return skills
 }
 
+interface RawVendorItem {
+  name: string
+  buyprice: string
+}
+
+interface RawVendor {
+  name: string
+  desc: string
+}
+
+interface Vendor {
+  id: string
+  name: string
+  desc: string
+}
+
+async function loadVendors() {
+  const vendors: Vendor[] = (await csv(`data/vendors.csv`)).map(
+    (fields: RawVendor) => ({ id: slug(fields.name), ...fields })
+  )
+  const wares = await Promise.all(
+    vendors.map(async (vendor) =>
+      (await csv(`data/vendors/${vendor.id}.csv`)).map(
+        (fields: RawVendorItem) => ({ id: slug(fields.name), ...fields })
+      )
+    )
+  )
+
+  return [vendors, wares.flat(1)]
+}
+
 function createResources(materials) {
   const res = materials
     .filter((m) => m.skill.category == Gathering || m.skill.category == Other)
@@ -524,6 +555,9 @@ async function loadData(modName, settings) {
   let mod = MODIFICATIONS.get(modName)
   useLegacyCalculation = mod.legacy
   let filename = 'data/' + mod.filename
+
+  const vendors = await loadVendors()
+  console.log(vendors)
 
   const skills = await loadSkills()
   console.log('skills', skills)

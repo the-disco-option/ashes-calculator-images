@@ -13,9 +13,12 @@ export async function csv(filename) {
   }
 
   const text = await res.text()
-  const [headers, ...rows] = text.split('\n').map((line) => line.split(';'))
+  const [headers, ...rows] = text
+    .split('\n')
+    .filter((line) => line.trim().length > 0) // filter out empty lines
+    .map((line) => line.split(';'))
   const no_columns = headers.length
-  /** @type {Array<Record<string, unknown>} */
+  /** @type {Array<Record<string, unknown>>} */
   const out = []
   for (const [index, row] of rows.entries()) {
     if (row.length !== no_columns) {
@@ -32,12 +35,11 @@ export async function csv(filename) {
   return out
 }
 
-/**
- * @param {string} str
- * @returns {string}
- */
-export function slug(str) {
-  return str.trim().toLowerCase().replaceAll(/\s+/g, '-')
+export function slug(str: string) {
+  return str
+    .trim()
+    .toLowerCase()
+    .replaceAll(/['.`´,|¨\*\s]+/g, '-')
 }
 
 /**
