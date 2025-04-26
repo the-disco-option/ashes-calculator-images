@@ -39,7 +39,8 @@ export function slug(str: string) {
   return str
     .trim()
     .toLowerCase()
-    .replaceAll(/['.`´,|¨\*\s]+/g, '-')
+    .replaceAll(/[^a-z]+/g, '-')
+    .replaceAll(/-+/g, '-')
 }
 
 /**
